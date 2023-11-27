@@ -1,0 +1,41 @@
+.home-container{
+  background-image: url("../../assets/viewHome!.gif");
+  background-size: cover;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  margin-top: 4em;
+}
+
+.containerLogo{
+ width: 100%;
+}
+
+.blackBackground {
+    background-color: #efb710b3;
+    height: 5em;
+    color: red;
+    width: 100%;
+}
+  
+.textSales {
+  margin: 0;
+  font-size: 24px;
+}
+.containerImg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70em;
+  margin-left: 30em;
+
+}
+
+.centeredImage {
+  max-width: 80%;
+  max-height: 80%;
+
+}
+
+
+

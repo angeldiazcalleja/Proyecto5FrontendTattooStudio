@@ -1,0 +1,36 @@
+/* ImageWithText.css */
+
+.galleryImageContainer {
+    position: relative;
+  }
+  
+  .galleryImage3 {
+    width: 38em;
+    height: 41.5em;
+    transition: opacity 0.3s ease-in-out; 
+  }
+  
+  .galleryImageText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.234);
+    padding: 10px;
+    border-radius: 7px;
+    display: none;
+    text-align: center;
+    font-size: 23px;
+    color: rgb(239, 182, 12);
+    font-weight: bold;
+    border: solid 2px black
+  }
+  
+  .galleryImageContainer.hovered .galleryImage3 {
+    opacity: 0.4; 
+  }
+  
+  .galleryImageContainer.hovered .galleryImageText {
+    display: block;
+  }
+  
