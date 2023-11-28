@@ -20,7 +20,7 @@ html, body {
   font-family: "Miltonian Tattoo";
   margin-bottom: 0.2em;
   text-align: center;
-  margin-top: 0.5em;
+  margin-top: 0.35em;
 }
 
 .changeSignUp{
@@ -48,9 +48,8 @@ html, body {
   font-family: "Miltonian Tattoo";
   font-size: 24px;
   font-weight: bold;
-  margin-bottom: 10em;
   margin-left: 2.35em;
-  margin-top: 1em;
+  margin-top: 0.3em;
 
 }
 
@@ -59,7 +58,7 @@ html, body {
 }
 
 .cardLogin0{
-  background-color: #efb710c4;
+  background-color: #efb71096;
   width: 30em;
   height: 36em;
   display: flex;
@@ -85,3 +84,30 @@ html, body {
 }
 
 
+.containerMsg{
+  width: 40em;
+  height: 4em;
+  background-color: #efb810 ;
+  border-radius: 5px;
+}
+
+.msgDesign{
+   font-size: 28px;
+   margin-top: 0.6em;
+   color: white;
+   text-align: center;
+   font-family: "Miltonian Tattoo";
+
+}
+
+.errorRedMsg0 {
+
+  color: red;
+  text-align: center;
+  margin-bottom: 0.4em;
+  margin-top: 0.3em;
+}
+.errorRedMsg1 {
+  color: red;
+  text-align: center;
+}

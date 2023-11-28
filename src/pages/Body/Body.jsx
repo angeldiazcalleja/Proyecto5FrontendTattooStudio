@@ -5,6 +5,8 @@ import { Header } from "../../common/Header/Header";
 import { RegisterUser } from "../Register/Register";
 import { Studio } from "../Studio/Studio";
 import { StudioGallery } from "../StudioGallery/StudioGallery";
+import { Profile } from "../Profile/Profile";
+import { Artists } from "../Artists/Artists";
 
 export const Body = () => {
   return (
@@ -61,6 +63,24 @@ export const Body = () => {
             <>
               <Header showHeader={true} /> 
               <StudioGallery />
+            </>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <>
+              <Header showHeader={true} /> 
+              <Profile />
+            </>
+          }
+        />
+        <Route
+          path="/artists"
+          element={
+            <>
+              <Header showHeader={false} /> 
+              <Artists />
             </>
           }
         />

@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import './Input.css'; 
 
-const Inputs = ({ text, type, name, handler }) => {
+const Inputs = ({ text, type, name, handler,functionError }) => {
   return (
     <div className="custom-input-wrapper">
       <input
@@ -9,7 +9,9 @@ const Inputs = ({ text, type, name, handler }) => {
         name={name}
         placeholder={text}
         onChange={(e) => handler(e)}
+        maxLength={50}
         className="custom-input"
+        onBlur={(e)=>functionError(e)}
       />
     </div>
   );
