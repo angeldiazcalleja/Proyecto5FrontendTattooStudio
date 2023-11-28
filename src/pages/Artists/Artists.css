@@ -1,0 +1,19 @@
+.artists-view {
+    background-image: url("../../assets/bgArtists.jpg");
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 100vh; /* Establece la altura mínima al 100% de la altura de la ventana */
+    width: 100%; /* Ajusta el ancho al 100% del ancho de la ventana */
+    background-size: cover;
+    justify-content: space-between;
+    margin: 0; /* Elimina los márgenes para asegurarte de que no haya espacio adicional */
+    padding: 2em; /* Añade un espacio interno para evitar que las tarjetas se peguen a los bordes */
+  }
+  
+  .artists-row {
+    display: flex;
+    margin-left: 18.5em;
+    width: 100%;
+    margin-bottom: 1em;
+  }
+  

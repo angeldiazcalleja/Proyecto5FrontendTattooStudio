@@ -7,8 +7,10 @@ import { Studio } from "../Studio/Studio";
 import { StudioGallery } from "../StudioGallery/StudioGallery";
 import { Profile } from "../Profile/Profile";
 import { Artists } from "../Artists/Artists";
+import Tattoos from "../Tattoos/Tattoos";
 
 export const Body = () => {
+
   return (
     <>
       <Routes>
@@ -84,7 +86,20 @@ export const Body = () => {
             </>
           }
         />
+         <Route
+          path="/artists/:id/tattoos"
+          element={
+            <>
+              <Header showHeader={true} /> 
+              <Tattoos/>
+            </>
+          }
+        />
       </Routes>
     </>
   );
 };
+
+
+
+
