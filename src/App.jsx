@@ -1,14 +1,17 @@
 import './App.css'
+import { Footer } from './common/Footer/Footer';
 import { Header } from './common/Header/Header'
-import { Body } from './pages/Body/Body'
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { Main } from './pages/Main/Main';
+
 
 function App() {
 
   return (
     <>
       <Header/>
-      <Body/>
+      <Main/>
+      <Footer/>
+   
     </>
   )
 }

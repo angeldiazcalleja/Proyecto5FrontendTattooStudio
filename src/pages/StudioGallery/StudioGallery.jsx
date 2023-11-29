@@ -49,7 +49,3 @@ export const StudioGallery = () => {
   );
 };
 
-
-  {/* <div className="centerColumn">
-          <img src={interiorStudio0} alt="Image 6" className="galleryImage3" />
-        </div> */}

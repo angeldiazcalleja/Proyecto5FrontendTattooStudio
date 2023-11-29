@@ -1,5 +1,5 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import { Home } from "../Home/Home";
+import { Main } from "../Main/Main";
 import { Login } from "../Login/Login";
 import { Header } from "../../common/Header/Header";
 import { RegisterUser } from "../Register/Register";
@@ -7,10 +7,10 @@ import { Studio } from "../Studio/Studio";
 import { StudioGallery } from "../StudioGallery/StudioGallery";
 import { Profile } from "../Profile/Profile";
 import { Artists } from "../Artists/Artists";
-import Tattoos from "../Tattoos/Tattoos";
+import { Tattoos } from "../Tattoos/Tattoos";
+
 
 export const Body = () => {
-
   return (
     <>
       <Routes>
@@ -18,7 +18,7 @@ export const Body = () => {
           path="*"
           element={
             <>
-              <Header showHeader={true} /> 
+              <Header showHeader={true} />
               <Navigate to="/" />
             </>
           }
@@ -27,8 +27,8 @@ export const Body = () => {
           path="/"
           element={
             <>
-              <Header showHeader={true} /> 
-              <Home />
+              <Header showHeader={true} />
+              <Main />
             </>
           }
         />
@@ -36,16 +36,16 @@ export const Body = () => {
           path="/login"
           element={
             <>
-              <Header showHeader={false} /> 
+              <Header showHeader={false} />
               <Login />
             </>
           }
         />
-         <Route
+        <Route
           path="/register"
           element={
             <>
-              <Header showHeader={false} /> 
+              <Header showHeader={false} />
               <RegisterUser />
             </>
           }
@@ -54,7 +54,7 @@ export const Body = () => {
           path="/studio"
           element={
             <>
-              <Header showHeader={false} /> 
+              <Header showHeader={false} />
               <Studio />
             </>
           }
@@ -63,7 +63,7 @@ export const Body = () => {
           path="/studioGallery"
           element={
             <>
-              <Header showHeader={true} /> 
+              <Header showHeader={true} />
               <StudioGallery />
             </>
           }
@@ -72,7 +72,7 @@ export const Body = () => {
           path="/profile"
           element={
             <>
-              <Header showHeader={true} /> 
+              <Header showHeader={true} />
               <Profile />
             </>
           }
@@ -81,17 +81,17 @@ export const Body = () => {
           path="/artists"
           element={
             <>
-              <Header showHeader={false} /> 
+              <Header showHeader={false} />
               <Artists />
             </>
           }
         />
-         <Route
+        <Route
           path="/artists/:id/tattoos"
           element={
             <>
-              <Header showHeader={true} /> 
-              <Tattoos/>
+              <Header showHeader={true} />
+              <Tattoos />
             </>
           }
         />
@@ -99,7 +99,3 @@ export const Body = () => {
     </>
   );
 };
-
-
-
-

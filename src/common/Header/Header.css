@@ -9,11 +9,6 @@
   height: 6em;
 }
 
-body {
-  margin-top: 70px; /* Añadido margen superior en el cuerpo para evitar superposición con el encabezado */
-  background-color: black;
-}
-
 .hidden {
   display: none; /* Oculta el header cuando tiene la clase "hidden" */
 }

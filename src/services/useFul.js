@@ -20,3 +20,5 @@ export const validate = (type, value) => {
         }
     }
   };
+
+  

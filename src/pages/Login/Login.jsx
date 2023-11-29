@@ -1,20 +1,22 @@
 import { BiX } from "react-icons/bi";
 import Inputs from "../../common/Input/Input";
-import { useState } from "react";
+import { useState,  } from "react";
 import { login } from "../../services/apiCalls";
 import { jwtDecode } from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
 import { useDispatch } from "react-redux";
-import { userLogin } from "../userSlice";
+import { userLogin,  } from "../userSlice";
 import { Header } from "../../common/Header/Header";
 import { validate } from "../../services/useFul";
+import {   } from "react-redux";
 
 export const Login = () => {
   const [loginDetails, setLoginDetails] = useState({ email: "", password: "" });
   const dispath = useDispatch();
   const navigate = useNavigate();
   const [msg, setMsg] = useState("");
+
 
   const [userError, setUserError] = useState({
     emailError: "",
@@ -28,10 +30,9 @@ export const Login = () => {
   const loginHandler = () => {
     login(loginDetails)
       .then((res) => {
-        const token = jwtDecode(res.data.token);
+        const token = jwtDecode(res.data.token); //token
         dispath(userLogin({ credentials: token }));
         setMsg(`Welcome! Good to see you again ${res.data.name}`);
-        console.log(token);
         setTimeout(() => {
           navigate("/");
         }, 2000);
@@ -45,9 +46,16 @@ export const Login = () => {
     navigate("/");
   };
 
+  // useEffect(()=>{
+  //   if(rdxUserData.credentials.token){
+  //     navigate("/")
+  //   }
+  // }, [navigate, rdxUserData])
+
   const handleGoToSignUp = () => {
     navigate("/register");
   };
+
 
   const checkError = (e) => {
 

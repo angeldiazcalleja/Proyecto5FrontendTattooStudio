@@ -15,6 +15,7 @@ export const RegisterUser = () => {
   const [registerDetails, setRegisterDetails] = useState({
     email: "",
     password: "",
+    phone: "", 
   });
 
   const inputHandler = (e) => {
@@ -27,15 +28,41 @@ export const RegisterUser = () => {
   const registerHandler = () => {
     registerUser(registerDetails)
       .then((res) => {
-        const decodedToken = jwtDecode(res.data.token);
-        console.log(decodedToken);
+        const token = jwtDecode(res.data.token);
+        
+        console.log(token);
         localStorage.setItem("token", res.data.token);
-        navigate("/profile");
+        navigate("/");
       })
       .catch((err) => {
         console.log(err);
       });
   };
+
+  // const [registerDetails, setRegisterDetails] = useState({
+  //   email: "",
+  //   password: "",
+  // });
+
+  // const inputHandler = (e) => {
+  //   setRegisterDetails((prevState) => ({
+  //     ...prevState,
+  //     [e.target.name]: e.target.value,
+  //   }));
+  // };
+
+  // const registerHandler = () => {
+  //   registerUser(registerDetails)
+  //     .then((res) => {
+  //       const decodedToken = jwtDecode(res.data.token);
+  //       console.log(decodedToken);
+  //       localStorage.setItem("token", res.data.token);
+  //       navigate("/profile");
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
 
   const handleGoToHome = () => {
     navigate("/");
@@ -79,11 +106,19 @@ export const RegisterUser = () => {
               handler={inputHandler}
             />
 
-             <Checkbox
+            <Inputs
+              text="Phone"
+              type="Prone"
+              name="phone"
+              className="inputLogin"
+              handler={inputHandler}
+            />
+
+            <Checkbox
               label="I am over 18 years old"
               checked={isOver18}
               onChange={setIsOver18}
-            /> 
+            />
             <button className="buttonSignUp" onClick={registerHandler}>
               || SIGN UP ||
             </button>

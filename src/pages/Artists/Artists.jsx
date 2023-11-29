@@ -8,6 +8,10 @@ import artist6 from "../../assets/artist6.jpg";
 import artist7 from "../../assets/artist7.webp";
 import artist8 from "../../assets/artist8.jpg";
 import "./Artists.css";
+// import { tattoosImages } from "../../common/Utils";
+
+
+
 
 export const Artists = () => {
   const artists = [

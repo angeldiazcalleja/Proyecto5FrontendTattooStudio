@@ -1,7 +1,8 @@
 import PropTypes from "prop-types";
 import "./Tattoos.css"; 
 
-const Tattoos = ({ artist }) => {
+export const Tattoos = ({ artist }) => {
+  console.log(artist)
   return (
     <div className="tattoos-container">
       <h2>Tattoos by {artist.name}</h2>

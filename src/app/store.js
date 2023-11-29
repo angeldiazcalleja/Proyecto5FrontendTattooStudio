@@ -5,11 +5,9 @@ import storage from "redux-persist/lib/storage";
 import thunk from "redux-thunk";
 import userSlice from "../pages/userSlice";
 
-// import sessionSlice from "../src/pages/sessionSlice.js"
 
 const reducers = combineReducers({
   user: userSlice,
-  // session: sessionSlice
 });
 
 const persistConfig = {
