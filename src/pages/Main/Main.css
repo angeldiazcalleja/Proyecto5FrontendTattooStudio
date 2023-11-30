@@ -1,0 +1,5 @@
+.principalView {
+    width: 100vw; /* 100% del ancho de la ventana del navegador */
+    overflow-x: hidden; /* Evita el desplazamiento horizontal */
+    
+}

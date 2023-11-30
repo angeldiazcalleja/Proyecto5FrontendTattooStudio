@@ -117,20 +117,20 @@ export const Header = ({ showHeader }) => {
           </div>
           <div className="custom-social">
             <a>
-              <FontAwesomeIcon icon={faTwitter} style={{ color: "#efb810", fontSize: '35px' }} />
+              <FontAwesomeIcon icon={faTwitter} style={{ color: "#efb810", fontSize: '30px' }} />
               <span className="d-lg-none ml-3">Twitter</span>
             </a>
             <a>
-              <FontAwesomeIcon icon={faInstagram} style={{ color: "#efb810", fontSize: '35px' }} />
+              <FontAwesomeIcon icon={faInstagram} style={{ color: "#efb810", fontSize: '30px' }} />
               <span className="d-lg-none ml-3">Instagram</span>
             </a>
             <a>
-              <FontAwesomeIcon icon={faFacebook} style={{ color: "#efb810", fontSize: '35px' }} />
-              <span className="d-lg-none ml-3">TikTok</span>
+              <FontAwesomeIcon icon={faFacebook} style={{ color: "#efb810", fontSize: '30px' }} />
+              <span className="d-lg-none ml-3">Facebook</span>
             </a>
-            <a href="#">
-              <FontAwesomeIcon icon={faYoutube} style={{ color: "#efb810", fontSize: '35px' }} />
-              <span className="d-lg-none ml-3">Youtube</span>
+              <a>
+              <FontAwesomeIcon icon={faYoutube} style={{ color: "#efb810", fontSize: '30px' }} />
+              <span className="d-lg-none ml-3"></span>
             </a>
           </div>
         </nav>

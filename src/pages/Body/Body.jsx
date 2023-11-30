@@ -9,7 +9,6 @@ import { Profile } from "../Profile/Profile";
 import { Artists } from "../Artists/Artists";
 import { Tattoos } from "../Tattoos/Tattoos";
 
-
 export const Body = () => {
   return (
     <>

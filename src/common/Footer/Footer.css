@@ -1,9 +1,11 @@
+
 .custom-footer {
-  height: 57.9em;
+  height: 90.9em;
   width: 100%;
   flex-wrap: wrap;
   background-color: rgb(0, 0, 0);
-  padding: 20px;
+  padding: 5px;
+  
 }
 
 .containerInformationFooter {
@@ -40,26 +42,41 @@
 }
 
 .footer-column3{
-  margin-right: 10em;
+  margin-right: 13em;
 
 }
 
 
 .inputFooter{
-    width: 12em;
-    height: 3em;
+    width: 13em;
+    height: 3.5em;
 }
 
 .commentFooter{
-    width: 24em;
-    height: 5em;
+    width: 26.5em;
+    height: 8em;
     text-align: center;
 }
 
-.commentFooter placeholder{
-
+.submitFooter{
+  width: 12em;
+  height: 2.5em;
+  font-size: 18px;
+  border-radius: 7px;
+ background-color: #efb810;
+ border: 2px solid black;
+ color: white;
+ margin-left: 0.7em;
+ font-weight: bold;
 
 }
+
+.submitFooter:hover{
+  background-color: #efb710b0;
+  color: black;
+}
+
+
 
 .titleFooter {
   font-family: "Miltonian Tattoo";
@@ -112,4 +129,17 @@
 .footer-column button {
   width: 100%;
   margin-bottom: 10px;
+} 
+
+
+.inputRow {
+  display: flex;
+  justify-content: space-between; /* Espacio uniforme entre los elementos */
+  margin-bottom: 1em; /* Ajusta según sea necesario */
 }
+
+.inputGroup {
+  display: flex;
+  flex-direction: column; /* Apila los elementos verticalmente */
+}
+
