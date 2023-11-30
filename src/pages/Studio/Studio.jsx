@@ -7,7 +7,8 @@ import { Link } from "react-router-dom";
 export const Studio = () => {
   return (
     <>
-      <div className="containerStudio">
+      <div className="containerStudio"> 
+      <div className="lineStudioTop"></div>
       <div className="titleStudio">
         <p>THE STUDIO</p>
       </div>
@@ -18,7 +19,7 @@ export const Studio = () => {
       </div>
       <div className="containerStreet">
         <div className="streetStudio">
-          <p>306/4-14 Buckingham St, Surry Hills NSW 2010, Sydney</p>
+          <p className="contentStreet"> 306/4-14 Buckingham St, Surry Hills NSW 2010, Sydney</p>
         </div>
         <div className="lineStudio"></div>
       </div>

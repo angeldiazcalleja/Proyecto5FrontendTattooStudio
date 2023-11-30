@@ -37,11 +37,15 @@
 }
 
 .streetStudio {
-  padding-top: 0.5em;
+  padding-top: 0.2em;
   font-weight: bold;
   text-align: center;
   font-size: 1.5em;
   color: #efb810;
+}
+
+.contentStreet{
+ margin-top: 0.6em;
 }
 
 .lineStudio {
@@ -51,7 +55,7 @@
   text-align: center;
   font-size: 28px;
   position: relative;
-  margin-top: 1.2em;
+
 }
 
 .lineStudio:before {
@@ -79,4 +83,22 @@
 
 .galleryButton:hover {
   background-color: #efb71060;
+}
+
+
+.lineStudioTop{
+  width: 100%;
+  text-align: center;
+  font-size: 68px;
+  position: relative; 
+
+}
+
+.lineStudioTop:before {
+  content: "";
+  width: 100%;
+  border-bottom: solid 15px #efb810;
+  position: absolute;
+  top: 0; 
+  left: 0;
 }

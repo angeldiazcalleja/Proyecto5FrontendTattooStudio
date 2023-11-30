@@ -40,6 +40,7 @@ export const Artists = () => {
 
   return (
     <div className="artists-view">
+      <div className="lineArtists"></div>
       <div className="artists-row">
         {artistsRow1.map((artist, index) => (
           <ArtistCard key={index} artist={artist} />

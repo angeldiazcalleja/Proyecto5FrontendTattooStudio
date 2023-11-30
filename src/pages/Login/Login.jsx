@@ -1,27 +1,26 @@
 import { BiX } from "react-icons/bi";
 import Inputs from "../../common/Input/Input";
-import { useState,  } from "react";
+import { useState, useEffect } from "react";
 import { login } from "../../services/apiCalls";
 import { jwtDecode } from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
-import { useDispatch } from "react-redux";
-import { userLogin,  } from "../userSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { userLogin, userLogout } from "../userSlice";
 import { Header } from "../../common/Header/Header";
 import { validate } from "../../services/useFul";
-import {   } from "react-redux";
 
 export const Login = () => {
   const [loginDetails, setLoginDetails] = useState({ email: "", password: "" });
-  const dispath = useDispatch();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [msg, setMsg] = useState("");
-
+  const userState = useSelector((state) => state.user);
 
   const [userError, setUserError] = useState({
     emailError: "",
-    passwordError: ""
-  })
+    passwordError: "",
+  });
 
   const inputHandler = (e) => {
     setLoginDetails((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -30,8 +29,8 @@ export const Login = () => {
   const loginHandler = () => {
     login(loginDetails)
       .then((res) => {
-        const token = jwtDecode(res.data.token); //token
-        dispath(userLogin({ credentials: token }));
+        const token = jwtDecode(res.data.token);
+        dispatch(userLogin({ credentials: token, token: res.data.token }));
         setMsg(`Welcome! Good to see you again ${res.data.name}`);
         setTimeout(() => {
           navigate("/");
@@ -42,33 +41,33 @@ export const Login = () => {
       });
   };
 
+  const logoutHandler = () => {
+    dispatch(userLogout());
+  };
+
   const handleGoToHome = () => {
     navigate("/");
   };
-
-  // useEffect(()=>{
-  //   if(rdxUserData.credentials.token){
-  //     navigate("/")
-  //   }
-  // }, [navigate, rdxUserData])
 
   const handleGoToSignUp = () => {
     navigate("/register");
   };
 
-
   const checkError = (e) => {
-
     let error = "";
-
-    error = validate(e.target.name, e.target.value)
+    error = validate(e.target.name, e.target.value);
 
     setUserError((prevState) => ({
       ...prevState,
-      [e.target.name + 'Error']: error
+      [e.target.name + "Error"]: error,
     }));
+  };
 
-  }
+  useEffect(() => {
+    if (userState.token) {
+      navigate("/");
+    }
+  }, [navigate, userState.token]);
 
   return (
     <>
@@ -116,6 +115,11 @@ export const Login = () => {
                 <button className="buttonLogin" onClick={loginHandler}>
                   || LOG IN ||
                 </button>
+                {userState.token && (
+                  <button className="buttonLogout" onClick={logoutHandler}>
+                  || LOG OUT ||
+                  </button>
+                )}
               </div>
             </div>
           </>
@@ -124,3 +128,34 @@ export const Login = () => {
     </>
   );
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
