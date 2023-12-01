@@ -1,19 +1,23 @@
 import './App.css'
 import { Footer } from './common/Footer/Footer';
 import { Header } from './common/Header/Header'
-import { Body } from './pages/Body/Body';
-// import { Main } from './pages/Main/Main';
-
+import { Router } from './pages/Routes/Router';
+import smoothscroll from 'smoothscroll-polyfill';
+ 
+smoothscroll.polyfill();
 
 function App() {
 
   return (
     <>
       <Header/>
-      <Body/>
+      <Router/>
       <Footer/>
     </>
   )
 }
 
 export default App
+
+
+

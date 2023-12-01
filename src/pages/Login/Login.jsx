@@ -1,6 +1,6 @@
 import { BiX } from "react-icons/bi";
 import Inputs from "../../common/Input/Input";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { login } from "../../services/apiCalls";
 import { jwtDecode } from "jwt-decode";
 import { useNavigate } from "react-router-dom";
@@ -31,7 +31,7 @@ export const Login = () => {
       .then((res) => {
         const token = jwtDecode(res.data.token);
         dispatch(userLogin({ credentials: token, token: res.data.token }));
-        setMsg(`Welcome! Good to see you again ${res.data.name}`);
+        setMsg(`Welcome! Good to see you again ${token.name || 'User'}`);
         setTimeout(() => {
           navigate("/");
         }, 2000);
@@ -62,12 +62,6 @@ export const Login = () => {
       [e.target.name + "Error"]: error,
     }));
   };
-
-  useEffect(() => {
-    if (userState.token) {
-      navigate("/");
-    }
-  }, [navigate, userState.token]);
 
   return (
     <>
@@ -128,6 +122,7 @@ export const Login = () => {
     </>
   );
 };
+
 
 
 

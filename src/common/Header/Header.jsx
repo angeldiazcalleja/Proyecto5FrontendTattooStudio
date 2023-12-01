@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faTwitter,
@@ -8,9 +9,19 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { userLogout, userData } from "../../pages/userSlice";
 import "./Header.css";
+import { useRef } from "react";
 
 export const Header = ({ showHeader }) => {
   const headerClass = showHeader ? "custom-header" : "custom-header hidden";
+
+  const homeRef = useRef(null);
+  const studioRef = useRef(null);
+  const artistsRef = useRef(null);
+
+
+  const scrollToRef = (ref) => {
+    ref.current.scrollIntoView({ behavior: "smooth" });
+  };
 
   const user = useSelector(userData);
   const hasToken = user.token;
@@ -25,7 +36,7 @@ export const Header = ({ showHeader }) => {
     <header className={headerClass}>
       <div className="custom-container">
         <nav className="custom-navbar">
-          <div className="custom-text">
+          <div className="custom-text" style={{ scrollBehavior: 'smooth' }}>
             {hasToken ? (
               <div className="custom-user">
                 <span
@@ -51,16 +62,16 @@ export const Header = ({ showHeader }) => {
                 Login 🔐
               </a>
             )}
-            <a href="home" className="custom-home">
+            <a href="#home" className="custom-home" onClick={() => scrollToRef(homeRef)}>
               || HOME ||
             </a>
-            <a href="studio" className="custom">
+            <a href="#studio" className="custom" onClick={() => scrollToRef(studioRef)} >
               || STUDIO ||
             </a>
-            <a href="artists" className="custom">
+            <a href="#artists" className="custom" onClick={() => scrollToRef(artistsRef)}>
               || ARTISTS ||
             </a>
-            <a href="book-now" className="custom">
+            <a href="#book-now" className="custom">
               || BOOK NOW ||
             </a>
           </div>

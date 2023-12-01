@@ -1,21 +1,26 @@
-import Inputs from "../../common/Input/Input";
+import  { useState } from "react";
 import { BiX } from "react-icons/bi";
-import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { registerUser } from "../../services/apiCalls";
 import { jwtDecode } from "jwt-decode";
 import { Header } from "../../common/Header/Header";
 import { useNavigate } from "react-router-dom";
-import "./Register.css";
+import { userLogin } from "../userSlice";
+import Inputs from "../../common/Input/Input";
 import Checkbox from "../../common/Checkbox/Checkbox";
+import "./Register.css";
 
 export const RegisterUser = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [isOver18, setIsOver18] = useState(false);
+  const [msg, setMsg] = useState("");
 
   const [registerDetails, setRegisterDetails] = useState({
+    name: "",
     email: "",
     password: "",
-    phone: "", 
+    phone: "",
   });
 
   const inputHandler = (e) => {
@@ -25,45 +30,22 @@ export const RegisterUser = () => {
     }));
   };
 
+
   const registerHandler = () => {
     registerUser(registerDetails)
       .then((res) => {
-        const token = jwtDecode(res.data.token);
-        
-        console.log(token);
-        localStorage.setItem("token", res.data.token);
-        navigate("/");
+        const token = res.data.token ? jwtDecode(res.data.token.toString()) : null;
+        dispatch(userLogin({ credentials: {}, token })); 
+        setMsg(`Account created successfully! Please log in.`);
+        setTimeout(() => {
+          navigate("/");
+        }, 2000);
       })
       .catch((err) => {
         console.log(err);
       });
   };
-
-  // const [registerDetails, setRegisterDetails] = useState({
-  //   email: "",
-  //   password: "",
-  // });
-
-  // const inputHandler = (e) => {
-  //   setRegisterDetails((prevState) => ({
-  //     ...prevState,
-  //     [e.target.name]: e.target.value,
-  //   }));
-  // };
-
-  // const registerHandler = () => {
-  //   registerUser(registerDetails)
-  //     .then((res) => {
-  //       const decodedToken = jwtDecode(res.data.token);
-  //       console.log(decodedToken);
-  //       localStorage.setItem("token", res.data.token);
-  //       navigate("/profile");
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
-
+  
   const handleGoToHome = () => {
     navigate("/");
   };
@@ -77,6 +59,12 @@ export const RegisterUser = () => {
       <Header showHeader={false} />
 
       <div className="containerSign">
+        {msg !== "" ? (
+          <div className="containerMsg">
+            <div className="msgDesign">{msg}</div>
+          </div>
+        ) : (
+          <>
         <BiX onClick={handleGoToHome} className="BiXIcon" />
         <div className="cardSign0">
           <div className="cardSign1">
@@ -91,6 +79,13 @@ export const RegisterUser = () => {
                 </span>
               </p>
             </div>
+            <Inputs
+              text="Name"
+              type="name"
+              name="name"
+              className="inputLogin"
+              handler={inputHandler}
+            />
             <Inputs
               text="Email ID"
               type="email"
@@ -124,6 +119,8 @@ export const RegisterUser = () => {
             </button>
           </div>
         </div>
+        </>
+        )}
       </div>
     </>
   );

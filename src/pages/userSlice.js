@@ -1,29 +1,5 @@
-// import { createSlice } from "@reduxjs/toolkit";
+/* eslint-disable no-unused-vars */
 
-// export const userSlice = createSlice({
-//   name: "user",
-//   initialState: {
-//     credentials: {},
-//   },
-//   reducers: {
-//     userLogin: (state, action) => {
-//       return {
-//         ...state,
-//         ...action.payload,
-//       };
-//     },
-//     logout: (state, action) => {
-//       return {
-//         ...state,
-//         ...action.payload,
-//       };
-//     },
-//   },
-// });
-
-// export const { userLogin, logout } = userSlice.actions;
-// export const userData = (state) => state.user;
-// export default userSlice.reducer;
 
 import { createSlice } from "@reduxjs/toolkit";
 
@@ -55,3 +31,38 @@ export const userSlice = createSlice({
 export const { userLogin, userLogout } = userSlice.actions;
 export const userData = (state) => state.user;
 export default userSlice.reducer;
+
+// import { createSlice } from "@reduxjs/toolkit";
+
+// export const userSlice = createSlice({
+//   name: "user",
+//   initialState: {
+//     credentials: {},
+//     token: "",
+//   },
+//   reducers: {
+//     userLogin: (state, action) => {
+//       return {
+//         ...state,
+//         credentials: action.payload.credentials,
+//         token: action.payload.token,
+//       };
+//     },
+//     // eslint-disable-next-line no-unused-vars
+//     logout: (state, action) => {
+//       return {
+//         ...state,
+//         credentials: {},
+//         token: "",
+//       };
+//     },
+//     userRegister: (state, action) => {
+//       // Agregar lógica si es necesario
+//       return state;
+//     },
+//   },
+// });
+
+// export const { userLogin, logout, userRegister } = userSlice.actions;
+// export const userData = (state) => state.user;
+// export default userSlice.reducer;
