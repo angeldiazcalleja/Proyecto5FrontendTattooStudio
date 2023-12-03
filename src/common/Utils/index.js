@@ -1,245 +1,345 @@
-import Loreen0 from "../../../public/Tattoos/Loreen0.png"
-import Loreen1 from "../../../public/Tattoos/Loreen1.png"
-import Loreen2 from "../../../public/Tattoos/Loreen2.png"
-import Loreen3 from "../../../public/Tattoos/Loreen3.png"
-import Loreen4 from "../../../public/Tattoos/Loreen4.jpg"
-import Loreen5 from "../../../public/Tattoos/Loreen5.jpg"
-import Rebecca0 from "../../../public/Tattoos/Rebecca0.webp"
-import Rebecca1 from "../../../public/Tattoos/Rebecca1.webp"
-import Rebecca2 from "../../../public/Tattoos/Rebecca2.png"
-import Rebecca3 from "../../../public/Tattoos/Rebecca3.jpg"
-import Rebecca4 from "../../../public/Tattoos/Rebecca4.jpg"
-import Rebecca5 from "../../../public/Tattoos/Rebecca5.jpg"
-import Richard0 from "../../../public/Tattoos/Richard0.png"
-import Richard1 from "../../../public/Tattoos/Richard1.png"
-import Richard2 from "../../../public/Tattoos/Richard2.png"
-import Richard3 from "../../../public/Tattoos/Richard3.png"
-import Richard4 from "../../../public/Tattoos/Richard4.png"
-import Richard5 from "../../../public/Tattoos/Richard5.png"
-import Russell0 from "../../../public/Tattoos/Russell0.png"
-import Russell1 from "../../../public/Tattoos/Russell1.png"
-import Russell2 from "../../../public/Tattoos/Russell2.png"
-import Russell3 from "../../../public/Tattoos/Russell3.jpg"
-import Russell4 from "../../../public/Tattoos/Russell4.jpg"
-import Russell5 from "../../../public/Tattoos/Russell5.jpg"
-import Rachel0 from "../../../public/Tattoos/Rachel0.png"
-import Rachel1 from "../../../public/Tattoos/Rachel1.png"
-import Rachel2 from "../../../public/Tattoos/Rachel2.png"
-import Rachel3 from "../../../public/Tattoos/Rachel3.png"
-import Rachel4 from "../../../public/Tattoos/Rachel4.png"
-import Rachel5 from "../../../public/Tattoos/Rachel5.png"
-import Giuseppe0 from "../../../public/Tattoos/Giuseppe0.jpeg"
-import Giuseppe1 from "../../../public/Tattoos/Giuseppe1.jpeg"
-import Giuseppe2 from "../../../public/Tattoos/Giuseppe2.jpeg"
-import Giuseppe3 from "../../../public/Tattoos/Giuseppe3.jpeg"
-import Giuseppe4 from "../../../public/Tattoos/Giuseppe4.jpeg"
-import Giuseppe5 from "../../../public/Tattoos/Giuseppe5.jpeg"
-import Jessica0 from "../../../public/Tattoos/Jessica0.webp"
-import Jessica1 from "../../../public/Tattoos/Jessica1.jpg"
-import Jessica2 from "../../../public/Tattoos/Jessica2.jpg"
-import Jessica3 from "../../../public/Tattoos/Jessica3.avif"
-import Jessica4 from "../../../public/Tattoos/Jessica4.avif"
-import Jessica5 from "../../../public/Tattoos/Jessica5.webp"
-import Grace0 from "../../../public/Tattoos/Grace0.jpeg"
-import Grace1 from "../../../public/Tattoos/Grace1.png"
-import Grace2 from "../../../public/Tattoos/Grace2.jpeg"
-import Grace3 from "../../../public/Tattoos/Grace3.jpg"
-import Grace4 from "../../../public/Tattoos/Grace4.jpg"
-import Grace5 from "../../../public/Tattoos/Grace5.jpg"
-
+import Loreen0 from "../../assets/Tattoos/Loreen0.png"
+import Loreen1 from "../../assets/Tattoos/Loreen1.png"
+import Loreen2 from "../../assets/Tattoos/Loreen2.png"
+import Loreen3 from "../../assets/Tattoos/Loreen3.png"
+import Loreen4 from "../../assets/Tattoos/Loreen4.jpg"
+import Loreen5 from "../../assets/Tattoos/Loreen5.jpg"
+import Rebecca0 from "../../assets/Tattoos/Rebecca0.webp"
+import Rebecca1 from "../../assets/Tattoos/Rebecca1.webp"
+import Rebecca2 from "../../assets/Tattoos/Rebecca2.png"
+import Rebecca3 from "../../assets/Tattoos/Rebecca3.jpg"
+import Rebecca4 from "../../assets/Tattoos/Rebecca4.jpg"
+import Rebecca5 from "../../assets/Tattoos/Rebecca5.jpg"
+import Richard0 from "../../assets/Tattoos/Richard0.png"
+import Richard1 from "../../assets/Tattoos/Richard1.png"
+import Richard2 from "../../assets/Tattoos/Richard2.png"
+import Richard3 from "../../assets/Tattoos/Richard3.png"
+import Richard4 from "../../assets/Tattoos/Richard4.png"
+import Richard5 from "../../assets/Tattoos/Richard5.png"
+import Russell0 from "../../assets/Tattoos/Russell0.png"
+import Russell1 from "../../assets/Tattoos/Russell1.png"
+import Russell2 from "../../assets/Tattoos/Russell2.png"
+import Russell3 from "../../assets/Tattoos/Russell3.jpg"
+import Russell4 from "../../assets/Tattoos/Russell4.jpg"
+import Russell5 from "../../assets/Tattoos/Russell5.jpg"
+import Rachel0 from "../../assets/Tattoos/Rachel0.png"
+import Rachel1 from "../../assets/Tattoos/Rachel1.png"
+import Rachel2 from "../../assets/Tattoos/Rachel2.png"
+import Rachel3 from "../../assets/Tattoos/Rachel3.png"
+import Rachel4 from "../../assets/Tattoos/Rachel4.png"
+import Rachel5 from "../../assets/Tattoos/Rachel5.png"
+import Giuseppe0 from "../../assets/Tattoos/Giuseppe0.jpeg"
+import Giuseppe1 from "../../assets/Tattoos/Giuseppe1.jpeg"
+import Giuseppe2 from "../../assets/Tattoos/Giuseppe2.jpeg"
+import Giuseppe3 from "../../assets/Tattoos/Giuseppe3.jpeg"
+import Giuseppe4 from "../../assets/Tattoos/Giuseppe4.jpeg"
+import Giuseppe5 from "../../assets/Tattoos/Giuseppe5.jpeg"
+import Jessica0 from "../../assets/Tattoos/Jessica0.webp"
+import Jessica1 from "../../assets/Tattoos/Jessica1.jpg"
+import Jessica2 from "../../assets/Tattoos/Jessica2.jpg"
+import Jessica3 from "../../assets/Tattoos/Jessica3.avif"
+import Jessica4 from "../../assets/Tattoos/Jessica4.avif"
+import Jessica5 from "../../assets/Tattoos/Jessica5.webp"
+import Grace0 from "../../assets/Tattoos/Grace0.jpeg"
+import Grace1 from "../../assets/Tattoos/Grace1.png"
+import Grace2 from "../../assets/Tattoos/Grace2.jpeg"
+import Grace3 from "../../assets/Tattoos/Grace3.jpg"
+import Grace4 from "../../assets/Tattoos/Grace4.jpg"
+import Grace5 from "../../assets/Tattoos/Grace5.jpg"
 
 export const tattoosImages = [
     {
       src: Loreen0,
-      alt: "Imagen de Fuegos artificiales",
+      name: "Loreen",
+      type: "Japanese || Piercing",
+      alt: "loreen",
     },
     {
       src: Loreen1,
-      alt: "Imagen de Fuegos artificiales",
+      name: "Loreen",
+      type: "Japanese || Piercing",
+      alt: "loreen",
     },
     {
       src: Loreen2,
-      alt: "Imagen de Fuegos artificiales",
+      name: "Loreen",
+      type: "Japanese || Piercing",
+      alt: "loreen",
     },
     {
       src: Loreen3,
-      alt: "Imagen de Fuegos artificiales",
+      name: "Loreen",
+      type: "Japanese || Piercing",
+      alt: "loreen",
     },
     {
         src: Loreen4,
-        alt: "Imagen de Fuegos artificiales",
+        name: "Loreen",
+        type: "Japanese || Piercing",
+        alt: "loreen",
       },
       {
         src: Loreen5,
-        alt: "Imagen de Fuegos artificiales",
+        name: "Loreen",
+        type: "Japanese || Piercing",
+        alt: "loreen",
       },
       {
         src: Rebecca0,
-        alt: "Imagen de Fuegos artificiales",
+        name: "Rebecca",
+        type: "Neo-Trad || Color Work",
+        alt: "rebecca",
       },
       {
         src: Rebecca1,
-        alt: "Imagen de Fuegos artificiales",
+        name: "Rebecca",
+        type: "Neo-Trad || Color Work",
+        alt: "rebecca",
       },
       {
         src: Rebecca2,
-        alt: "Imagen de Fuegos artificiales",
+        name: "Rebecca",
+        type: "Neo-Trad || Color Work",
+        alt: "rebecca",
       },
       {
         src: Rebecca3,
-        alt: "Imagen de Fuegos artificiales",
+        name: "Rebecca",
+        type: "Neo-Trad || Color Work",
+        alt: "rebecca",
       },
       {
         src: Rebecca4,
-        alt: "Imagen de Fuegos artificiales",
+        name: "Rebecca",
+        type: "Neo-Trad || Color Work",
+        alt: "rebecca",
       },
       {
         src: Rebecca5,
-        alt: "Imagen de Fuegos artificiales",
+        name: "Rebecca",
+        type: "Neo-Trad || Color Work",
+        alt: "rebecca",
       },
       {
         src: Richard0,
-        alt: "Imagen de Fuegos artificiales",
+        name: "Richard",
+        type: "Realism || Dot Work",
+        alt: "richard",
       },
       {
         src: Richard1,
-        alt: "Imagen de Fuegos artificiales",
+        name: "Richard",
+        type: "Realism || Dot Work",
+        alt: "richard",
       },
       {
         src: Richard2,
-        alt: "Imagen de Fuegos artificiales",
+        name: "Richard",
+        type: "Realism || Dot Work",
+        alt: "richard",
       },
       {
         src: Richard3,
-        alt: "Imagen de Fuegos artificiales",
+        name: "Richard",
+        type: "Realism || Dot Work",
+        alt: "richard",
       },
       {
         src: Richard4,
-        alt: "Imagen de Fuegos artificiales",
+        name: "Richard",
+        type: "Realism || Dot Work",
+        alt: "richard",
       },
       {
         src: Richard5,
-        alt: "Imagen de Fuegos artificiales",
+        name: "Richard",
+        type: "Realism || Dot Work",
+        alt: "richard",
       },
       {
         src: Russell0,
-        alt: "Imagen de Fuegos artificiales",
+        name: "Russell",
+        type: "Text || Dot Work",
+        alt: "russell",
       },
       {
         src: Russell1,
-        alt: "Imagen de Fuegos artificiales",
+        name: "Russell",
+        type: "Text || Dot Work",
+        alt: "russell",
       },
       {
         src: Russell2,
-        alt: "Imagen de Fuegos artificiales",
+        name: "Russell",
+        type: "Text || Dot Work",
+        alt: "russell",
       },
       {
         src: Russell3,
-        alt: "Imagen de Fuegos artificiales",
+        name: "Russell",
+        type: "Text || Dot Work",
+        alt: "russell",
       },
       {
         src: Russell4,
-        alt: "Imagen de Fuegos artificiales",
+        name: "Russell",
+        type: "Text || Dot Work",
+        alt: "russell",
       },
       {
         src: Russell5,
-        alt: "Imagen de Fuegos artificiales",
+        name: "Russell",
+        type: "Text || Dot Work",
+        alt: "russell",
       },
       {
         src: Rachel0,
-        alt: "Imagen de Fuegos artificiales",
+        name: "Rachel",
+        type: "Fine Line || Piercing",
+        alt: "rachel",
       },
       {
         src: Rachel1,
-        alt: "Imagen de Fuegos artificiales",
+        name: "Rachel",
+        type: "Fine Line || Piercing",
+        alt: "rachel",
       },
       {
         src: Rachel2,
-        alt: "Imagen de Fuegos artificiales",
+        name: "Rachel",
+        type: "Fine Line || Piercing",
+
+        alt: "rachel",
+        
       },
       {
         src: Rachel3,
-        alt: "Imagen de Fuegos artificiales",
+        name: "Rachel",
+        type: "Fine Line || Piercing",
+
+        alt: "rachel",
       },
       {
         src: Rachel4,
-        alt: "Imagen de Fuegos artificiales",
+        name: "Rachel",
+        type: "Fine Line || Piercing",
+        alt: "rachel",
       },
       {
         src: Rachel5,
-        alt: "Imagen de Fuegos artificiales",
+        name: "Rachel",
+        type: "Fine Line || Piercing",
+        alt: "rachel",
       },
       {
         src: Giuseppe0,
-        alt: "Imagen de Fuegos artificiales",
+        name: "Giuseppe",
+        type: "Black Work || Laser",
+        alt: "giuseppe",
       },
       {
         src: Giuseppe1,
-        alt: "Imagen de Fuegos artificiales",
+        name: "Giuseppe",
+        type: "Black Work || Laser",
+        alt: "giuseppe",
       },
       {
         src: Giuseppe2,
-        alt: "Imagen de Fuegos artificiales",
+        name: "Giuseppe",
+        type: "Black Work || Laser",
+        alt: "giuseppe",
       },
       {
         src: Giuseppe3,
-        alt: "Imagen de Fuegos artificiales",
+        name: "Giuseppe",
+        type: "Black Work || Laser",
+        alt: "giuseppe",
       },
       {
         src: Giuseppe4,
-        alt: "Imagen de Fuegos artificiales",
+        name: "Giuseppe",
+        type: "Black Work || Laser",
+        alt: "giuseppe",
       },
       {
         src: Giuseppe5,
-        alt: "Imagen de Fuegos artificiales",
+        name: "Giuseppe",
+        type: "Black Work || Laser",
+        alt: "giuseppe",
       },
       {
         src: Jessica0,
-        alt: "Imagen de Fuegos artificiales",
+        name: "Jessica",
+        type:  "Realism || Fine Line",
+        alt: "jessica",
       },
       {
         src: Jessica1,
-        alt: "Imagen de Fuegos artificiales",
+        name: "Jessica",
+        type:  "Realism || Fine Line",
+        alt: "jessica",
       },
       {
         src: Jessica2,
-        alt: "Imagen de Fuegos artificiales",
+        name: "Jessica",
+        type:  "Realism || Fine Line",
+        alt: "jessica",
       },
       {
         src: Jessica3,
-        alt: "Imagen de Fuegos artificiales",
+        name: "Jessica",
+        type:  "Realism || Fine Line",
+        alt: "jessica",
       },
       {
         src: Jessica4,
-        alt: "Imagen de Fuegos artificiales",
+        name: "Jessica",
+        type:  "Realism || Fine Line",
+        alt: "jessica",
       },
       {
         src: Jessica5,
-        alt: "Imagen de Fuegos artificiales",
+        name: "Jessica",
+        type:  "Realism || Fine Line",
+        alt: "jessica",
       },
       {
         src: Grace0,
-        alt: "Imagen de Fuegos artificiales",
+        name: "Grace",
+        type: "Laser Tatoo || Piercing",
+        alt: "grace",
       },
       {
         src: Grace1,
-        alt: "Imagen de Fuegos artificiales",
+        name: "Grace",
+        type: "Laser Tatoo || Piercing",
+        alt: "grace",
+      
       },
       {
         src: Grace2,
-        alt: "Imagen de Fuegos artificiales",
+        name: "Grace",
+        type: "Laser Tatoo || Piercing",
+        alt: "grace",
       },
       {
         src: Grace3,
-        alt: "Imagen de Fuegos artificiales",
+        name: "Grace",
+        type: "Laser Tatoo || Piercing",
+        alt: "grace",
       },
       {
         src: Grace4,
-        alt: "Imagen de Fuegos artificiales",
+        name: "Grace",
+        type: "Laser Tatoo || Piercing",
+        alt: "grace",
       },
       {
         src: Grace5,
-        alt: "Imagen de Fuegos artificiales",
+        name: "Grace",
+        type: "Laser Tatoo || Piercing",
+        alt: "grace",
+       
       },
   ];
   

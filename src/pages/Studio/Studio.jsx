@@ -5,6 +5,8 @@ import gifStudio from "../../assets/gifStudio.gif";
 import { Link } from "react-router-dom";
 
 export const Studio = () => {
+
+
   return (
     <>
       <div className="containerStudio"> 
@@ -30,3 +32,5 @@ export const Studio = () => {
     </>
   );
 };
+
+

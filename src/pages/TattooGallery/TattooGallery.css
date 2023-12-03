@@ -1,0 +1,31 @@
+
+.tattoo-group {
+  display: flex;
+  margin-top: -3em;
+  margin-left: 6em;
+  color: white;
+
+}
+
+.tattooGallery {
+  margin-top: 10em;
+  background-color: black;
+
+}
+
+.lineGallery {
+  width: 100%;
+  text-align: center;
+  font-size: 68px;
+  position: relative;
+  margin-top: 1.41em;
+}
+
+.lineGallery:before {
+  content: "";
+  width: 100%;
+  border-bottom: solid 15px #efb810;
+  position: absolute;
+  top: 0;
+  left: 0;
+}

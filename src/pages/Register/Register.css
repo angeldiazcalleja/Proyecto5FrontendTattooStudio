@@ -20,7 +20,7 @@ html, body {
     font-weight: bold;
     font-family: "Miltonian Tattoo";
     text-align: center;
-    margin-top: -0.8em;
+    margin-top: -1em;
   }
   
   .changeLogIn{
@@ -62,7 +62,7 @@ html, body {
   .cardSign0{
     background-color: #efb710c4;
     width: 30em;
-    height: 40em;
+    height: 42em;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -73,7 +73,7 @@ html, body {
   .cardSign1{
     background-color: #efb710c4;
     width: 25em;
-    height: 36em;
+    height: 38em;
     border-radius: 4em;
   }
   
@@ -86,4 +86,10 @@ html, body {
   }
   
   
-  
+  .errorRedMsg {
+
+    color: red;
+    text-align: center;
+    margin-bottom: 0.4em;
+    margin-top: 0.3em;
+  }

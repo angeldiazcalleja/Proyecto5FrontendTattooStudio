@@ -1,0 +1,77 @@
+.gallery {
+  margin-top: 6em;
+}
+
+.tattooCard {
+  height: 30em;
+  width: 18em;
+  background-color: #efb710a2;
+  border: 3px solid black;
+  border-radius: 8px;
+  margin-left: 1em;
+  margin-bottom: 6em;
+  color: black;
+  font-size: 15px;
+  margin-top: 5em;
+  overflow: hidden; /* Para ocultar el contenido que desborda */
+  transition: all 0.3s ease; /* Agregar una transición suave */
+}
+
+.tattooImg {
+  width: 15em;
+  height: 21em;
+  border: 3px solid black;
+  margin-left: 1.1em;
+  margin-top: 0.5em;
+  border-radius: 1em;
+  transition: all 0.3s ease;  /* Transición suave*/
+}
+
+.srcText,
+.altText {
+  margin: 0;
+  font-size: 18px;
+  text-align: center;
+  color: black;
+}
+
+.nameText {
+  font-size: 25px;
+  color: black;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 0.5em;
+  font-family: "Miltonian Tattoo";
+}
+
+.typeText {
+  font-size: 22px;
+  color: black;
+  font-weight: bold;
+  text-align: center;
+  font-family: "Miltonian Tattoo";
+  margin-top: 2em;
+}
+
+.lineTattooCard {
+  width: 70%;
+  font-size: 2px;
+  position: relative;
+  margin-left:19em;
+
+
+}
+
+.lineTattooCard:before {
+  content: "";
+  width: 100%;
+  border-bottom: solid 4px black;
+  position: absolute;
+  top:-1;
+  left: 0;
+}
+
+  
+
+
+

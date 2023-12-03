@@ -1,14 +1,13 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import {  MainView } from "../Main/MainView";
+import { MainView } from "../Main/MainView";
 import { Login } from "../Login/Login";
 import { Header } from "../../common/Header/Header";
 import { RegisterUser } from "../Register/Register";
-import { Studio } from "../Studio/Studio";
 import { StudioGallery } from "../StudioGallery/StudioGallery";
 import { Profile } from "../Profile/Profile";
-import { Artists } from "../Artists/Artists";
-import { Tattoos } from "../Tattoos/Tattoos";
-// import { Home } from "../Home/Home";
+// import ArtistDetails from "../ArtistsDetails/ArtistsDetails";
+import TattooGallery from "../TattooGallery/TattooGallery";
+
 
 export const Router = () => {
   return (
@@ -28,7 +27,7 @@ export const Router = () => {
           element={
             <>
               <Header showHeader={true} />
-              <MainView/>
+              <MainView />
             </>
           }
         />
@@ -50,15 +49,7 @@ export const Router = () => {
             </>
           }
         />
-        <Route
-          path="/studio"
-          element={
-            <>
-              <Header showHeader={false} />
-              <Studio />
-            </>
-          }
-        />
+
         <Route
           path="/studioGallery"
           element={
@@ -78,72 +69,16 @@ export const Router = () => {
           }
         />
         <Route
-          path="/artists"
+          path="/tattooview"
           element={
             <>
-              <Header showHeader={false} />
-              <Artists />
+            <Header showHeader={true} />
+              <TattooGallery />
             </>
           }
         />
-        <Route
-          path="/artists/:id/tattoos"
-          element={
-            <>
-              <Header showHeader={true} />
-              <Tattoos />
-            </>
-          }
-        />
+        
       </Routes>
     </>
   );
 };
-
-
-
-// import { Navigate, Route, Routes } from "react-router-dom";
-// import { MainView } from "../Main/MainView";
-// import { Login } from "../Login/Login";
-// import { Header } from "../../common/Header/Header";
-// import { RegisterUser } from "../Register/Register";
-// import { Studio } from "../Studio/Studio";
-// import { StudioGallery } from "../StudioGallery/StudioGallery";
-// import { Profile } from "../Profile/Profile";
-// import { Artists } from "../Artists/Artists";
-// import { Tattoos } from "../Tattoos/Tattoos";
-
-// export const Body = () => {
-//   return (
-//     <>
-//       <Routes>
-//         <Route
-//           path="*"
-//           element={
-//             <>
-//               <Header showHeader={true} />
-//               <Navigate to="/" />
-//             </>
-//           }
-//         />
-//         <Route
-//           path="/"
-//           element={
-//             <>
-//               <Header showHeader={true} />
-//               <MainView />
-//             </>
-//           }
-//         />
-//         <Route path="/login" element={<Login />} />
-//         <Route path="/register" element={<RegisterUser />} />
-//         <Route path="/studio" element={<Studio />} />
-//         <Route path="/studioGallery" element={<StudioGallery />} />
-//         <Route path="/profile" element={<Profile />} />
-//         <Route path="/artists" element={<Artists />} />
-//         <Route path="/artists/:id/tattoos" element={<Tattoos />} />
-//       </Routes>
-//     </>
-//   );
-// };
-

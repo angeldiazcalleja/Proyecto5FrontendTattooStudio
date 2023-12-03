@@ -1,5 +1,5 @@
 import "./Home.css";
-import glowImage from "../../assets/glowHome.png";
+import glowImage from "../../assets/glowHomeFinal1.png";
 import { useSelector } from "react-redux";
 import { userData } from "../userSlice";
 

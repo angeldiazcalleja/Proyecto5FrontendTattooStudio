@@ -62,7 +62,7 @@ export const Header = ({ showHeader }) => {
                 Login 🔐
               </a>
             )}
-            <a href="#home" className="custom-home" onClick={() => scrollToRef(homeRef)}>
+            <a href="home" className="custom-home" onClick={() => scrollToRef(homeRef)}>
               || HOME ||
             </a>
             <a href="#studio" className="custom" onClick={() => scrollToRef(studioRef)} >

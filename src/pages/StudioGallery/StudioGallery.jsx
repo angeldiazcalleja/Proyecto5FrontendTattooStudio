@@ -13,7 +13,6 @@ import ImageWithText from '../ImageText/ImageText'
 
 export const StudioGallery = () => {
 
-    
   return (
     <div className="generalContainer">
     <div className="galleryContainer">
