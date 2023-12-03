@@ -71,7 +71,7 @@ export const Header = ({ showHeader }) => {
             <a href="#artists" className="custom" onClick={() => scrollToRef(artistsRef)}>
               || ARTISTS ||
             </a>
-            <a href="#book-now" className="custom">
+            <a href="booknow" className="custom">
               || BOOK NOW ||
             </a>
           </div>

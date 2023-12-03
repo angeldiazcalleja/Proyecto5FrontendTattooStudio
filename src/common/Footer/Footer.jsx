@@ -1,9 +1,20 @@
+import  { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Inputs from "../Input/Input";
 import "./Footer.css";
 
 export const Footer = () => {
-  // const footerClass = showFooter ? "custom-footer" : "custom hidden";
-  
+  const navigate = useNavigate();
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setMessage("Message sent");
+    setTimeout(() => {
+      setMessage("");
+      navigate("/");
+    }, 2000);
+  };
 
   return (
     <footer className="custom-footer">
@@ -35,21 +46,24 @@ export const Footer = () => {
 
         <div className="footer-column3">
           <p className="formFooter">Get In Touch</p>
-
-          <div className="formRow">
-            <Inputs text="First Name" type="text" name="firstName" />
-            <Inputs text="Last Name" type="text" name="lastName" />
-          </div>
-          <div className="formRow">
-            <Inputs text="Email" type="text" name="email" />
-            <Inputs text="Phone" type="text" name="phone" />
-          </div>
-          <Inputs text="Type your message" type="text" name="comment" />
-          <button className="submitFooter">SUBMIT</button>
+          <form onSubmit={handleSubmit}>
+            <div className="formRow">
+              <Inputs text="First Name" type="text" name="firstName" />
+              <Inputs text="Last Name" type="text" name="lastName" />
+            </div>
+            <div className="formRow">
+              <Inputs text="Email" type="text" name="email" />
+              <Inputs text="Phone" type="text" name="phone" />
+            </div>
+            <Inputs text="Type your message" type="text" name="comment" />
+            <button className="submitFooter" type="submit">
+              SUBMIT
+            </button>
+          </form>
+          {message && <div className="successMessage">{message}</div>}
         </div>
       </div>
 
-     
       <iframe
         title="Google Map"
         width="100%"
@@ -58,7 +72,7 @@ export const Footer = () => {
         loading="lazy"
         className="iframeFooter"
         allowFullScreen
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3312.1188381957036!2d151.20523537543858!3d-33.886593119980084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12ae2053c67de5%3A0x2e9d56cb72aeafc6!2s305%2F14%20Buckingham%20St%2C%20Surry%20Hills%20NSW%202010%2C%20Australia!5e0!3m2!1ses!2ses!4v1701303552041!5m2!1ses!2ses"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3312.1188381957036!2d151.2052353754386!3d-33.886593119980084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12ae2053c67de5%3A0x2e9d56cb72aeafc6!2s305%2F14%20Buckingham%20St%2C%20Surry%20Hills%20NSW%202010%2C%20Australia!5e0!3m2!1sen!2ses!4v1701603814490!5m2!1sen!2ses" 
       ></iframe>
 
       <div className="lineContactBottom"></div>

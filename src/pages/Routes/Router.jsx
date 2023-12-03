@@ -7,7 +7,8 @@ import { StudioGallery } from "../StudioGallery/StudioGallery";
 import { Profile } from "../Profile/Profile";
 // import ArtistDetails from "../ArtistsDetails/ArtistsDetails";
 import TattooGallery from "../TattooGallery/TattooGallery";
-
+import CreateAppointment from "../CreateAppointments/CreateAppointments";
+import { BookNow } from "../BookNow/BookNow";
 
 export const Router = () => {
   return (
@@ -72,12 +73,20 @@ export const Router = () => {
           path="/tattooview"
           element={
             <>
-            <Header showHeader={true} />
+              <Header showHeader={true} />
               <TattooGallery />
             </>
           }
         />
-        
+          <Route
+          path="/booknow"
+          element={
+            <>
+              <BookNow />
+            </>
+          }
+        />
+
       </Routes>
     </>
   );

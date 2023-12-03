@@ -1,6 +1,3 @@
-
-
-
 import { Header } from "../../common/Header/Header";
 import  Artists  from "../Artists/Artists";
 import { Home } from "../Home/Home";

@@ -1,22 +1,26 @@
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { createAppointment } from "../../services/apiCalls"; 
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { createAppointment } from "../../services/apiCalls";
+import "./CreateAppointments.css";
+import ImageTattoo from "../../assets/ImagesBookNow/ImageTattoo.png";
+import ImagePiercing from "../../assets/ImagesBookNow/ImagePiercing.png";
+import ImageLaser from "../../assets/ImagesBookNow/ImageLaser.png";
+import Inputs from "../../common/Input/Input";
 
 const CreateAppointment = () => {
   // eslint-disable-next-line no-unused-vars
   const dispatch = useDispatch();
   const [formData, setFormData] = useState({
-    // Define los campos de tu formulario
-    customerName: '',
-    customerSurname: '',
-    tattooArtistName: '',
-    tattooArtistSurname: '',
-    date: '',
-    startTime: '',
-    endTime: '',
-    service: '',
-    price: '',
-    comments: '',
+    customerName: "",
+    customerSurname: "",
+    tattooArtistName: "",
+    tattooArtistSurname: "",
+    date: "",
+    startTime: "",
+    endTime: "",
+    service: "",
+    price: "",
+    comments: "",
   });
 
   const handleInputChange = (e) => {
@@ -29,55 +33,127 @@ const CreateAppointment = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Llamada a la API para crear una cita
       const response = await createAppointment(formData);
-      // Puedes manejar la respuesta de la API aquí, por ejemplo, mostrar un mensaje de éxito
-      console.log('Cita creada con éxito:', response);
-      // También puedes realizar alguna acción adicional, como recargar la lista de citas
-      // dispatch(loadAppointments());
+      console.log("Cita creada con éxito:", response);
     } catch (error) {
-      // Manejo de errores, puedes mostrar un mensaje de error o realizar otras acciones
-      console.error('Error al crear la cita:', error);
+      console.error("Error al crear la cita:", error);
     }
   };
 
   return (
-    <div>
-      <h2>Crear Nueva Cita</h2>
-      <form onSubmit={handleSubmit}>
-        {/* Input fields para cada propiedad de la cita */}
-        <label htmlFor="customerName">Nombre del Cliente:</label>
-        <input type="text" id="customerName" name="customerName" value={formData.customerName} onChange={handleInputChange} />
+    <div className="containerBookNow">
+      <div className="containerTopBookNow">
+        <div className="sliceContainerTop">
+          <img src={ImageTattoo} alt="Tattoo" className="appointmentImage" />
+          <div className="appointmentType">
+            <p>Book</p>
+            <p>Tattoo</p>
+          </div>
+          <p className="depositRange">Deposit $50 - $250</p>
+        </div>
+        <div className="sliceContainerTop">
+          <img
+            src={ImagePiercing}
+            alt="Piercing"
+            className="appointmentImage"
+          />
+          <div className="appointmentType">
+            <p>Book</p>
+            <p>Piercing</p>
+          </div>
+          <p className="depositRange">Deposit $10 - $25</p>
+        </div>
+        <div className="sliceContainerTop">
+          <img src={ImageLaser} alt="Laser" className="appointmentImage" />
+          <div className="appointmentType">
+            <p>Book</p>
+            <p>Laser</p>
+          </div>
+          <p className="depositRange">Deposit $40 - $75</p>
+        </div>
+      </div>
 
-        <label htmlFor="customerSurname">Apellido del Cliente:</label>
-        <input type="text" id="customerSurname" name="customerSurname" value={formData.customerSurname} onChange={handleInputChange} />
+      <div className="containerForm">
+        <div className="lineFormBook"></div>
+        <div className="inputsForm">
+          <h2 className="tittleDate"> Book Your Date</h2>
+          <div className="formDate">
+            <span className="informationDate">
+              <p>Please fill out the form if you would like to schedule an
+              appointment with our staff. </p> 
+              <p>Depending on the design, a
+              consultation may be necessary. </p> 
+              <p>To secure your appointment, a fee is required and can be paid either at the studio or through bank
+              transfer.</p>
+              <p>Details for the bank transfer are available upon
+              request.</p> 
+            </span>
+            <form onSubmit={handleSubmit}>
+      
+            <div className="input-group">
+          <Inputs
+            text="Name"
+            type="text"
+            name="customerName"
+            value={formData.customerName}
+            handler={handleInputChange}
+          />
+          <Inputs
+            text="Tattoo Artist"
+            type="text"
+            name="tattooArtistName"
+            value={formData.tattooArtistName}
+            handler={handleInputChange}
+          />
+        </div>
 
-        <label htmlFor="tattooArtistName">Nombre del Artista:</label>
-        <input type="text" id="tattooArtistName" name="tattooArtistName" value={formData.tattooArtistName} onChange={handleInputChange} />
+      
+        <div className="input-group1">
+          <Inputs
+            text="Date"
+            type="text"
+            name="date"
+            value={formData.date}
+            handler={handleInputChange}
+          />
+          <Inputs
+            text="Date Start"
+            type="text"
+            name="startTime"
+            value={formData.startTime}
+            handler={handleInputChange}
+          />
+          <Inputs
+            text="Date End"
+            type="text"
+            name="endTime"
+            value={formData.endTime}
+            handler={handleInputChange}
+          />
+        </div>
 
-        <label htmlFor="tattooArtistSurname">Apellido del Artista:</label>
-        <input type="text" id="tattooArtistSurname" name="tattooArtistSurname" value={formData.tattooArtistSurname} onChange={handleInputChange} />
-
-        <label htmlFor="date">Fecha:</label>
-        <input type="text" id="date" name="date" value={formData.date} onChange={handleInputChange} />
-
-        <label htmlFor="startTime">Hora de Inicio:</label>
-        <input type="text" id="startTime" name="startTime" value={formData.startTime} onChange={handleInputChange} />
-
-        <label htmlFor="endTime">Hora de Fin:</label>
-        <input type="text" id="endTime" name="endTime" value={formData.endTime} onChange={handleInputChange} />
-
-        <label htmlFor="service">Servicio:</label>
-        <input type="text" id="service" name="service" value={formData.service} onChange={handleInputChange} />
-
-        <label htmlFor="price">Precio:</label>
-        <input type="text" id="price" name="price" value={formData.price} onChange={handleInputChange} />
-
-        <label htmlFor="comments">Comentarios:</label>
-        <input type="text" id="comments" name="comments" value={formData.comments} onChange={handleInputChange} />
-
-        <button type="submit">Crear Cita</button>
-      </form>
+        <div className="input-group3">
+          <Inputs
+            text="Type"
+            type="text"
+            name="service"
+            value={formData.service}
+            handler={handleInputChange}
+          />
+          <Inputs
+            text="Comments"
+            className="custom-input special"
+            type="text"
+            name="comments"
+            value={formData.comments}
+            handler={handleInputChange}
+          />
+        </div>
+        <button className="buttonBookNow" type="submit">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

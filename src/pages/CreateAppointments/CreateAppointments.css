@@ -1,0 +1,163 @@
+.containerBookNow{
+  width: 100%;
+  height: 75em;
+}
+
+
+.containerTopBookNow{
+    width: 100%;
+    height: 30em;
+    background-color: black;
+    margin-top: 6em;
+    display: flex;
+}
+
+.sliceContainerTop{
+    width: 33%;
+    height: 20em;
+    text-align: center;
+   
+}
+
+.appointmentImage{
+    width: 38em;
+    height: 38em;
+    margin-top: -10em;
+    
+}
+
+
+.appointmentType{
+    color: white;
+    margin-top: -9em;
+    font-weight: bold;
+    font-family: "Miltonian Tattoo";
+    font-size: 1.5em;
+    white-space: pre-line;
+    text-transform: uppercase;
+}
+
+
+.depositRange{
+    color: white;
+    margin-top: 2em;
+    font-weight: bold;
+    font-family: "Miltonian Tattoo";
+    font-size: 1.5em;
+    text-transform: uppercase;
+}
+
+
+.containerForm{
+    background-color: black;
+    width: 100%;
+    height: 80em;
+    overflow: hidden;
+}
+
+.lineFormBook{
+    width: 100%;
+    text-align: center;
+    font-size: 68px;
+    position: relative; 
+  
+  }
+  
+  .lineFormBook:before {
+    content: "";
+    width: 100%;
+    border-bottom: solid 15px #efb810;
+    position: absolute;
+    top: 0; 
+    left: 0;
+  }
+  
+
+  .tittleDate{
+    text-transform: uppercase;
+    color: white;
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    font-family: "Miltonian Tattoo";
+    margin-top: 3.5em;
+  }
+
+  .informationDate{
+    color: black;
+    font-weight: bold;
+    padding-top: 1.5em;
+    padding-left: 0.5em;
+    text-align: center;
+    line-height: 0.2em;
+    font-size: 1.18em ;
+  }
+
+
+  .formDate{
+    width: 80em;
+    height: 29em;
+    background-color: #efb710d8;
+    border-radius: 8px;
+    margin-left: 23.5em;
+  }
+
+
+  .informationForm{
+    margin-left: 10em;
+  }
+
+  .input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    margin-left: 25em;
+    margin-top: 2.5em;
+  }
+
+  .input-group1 {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    margin-left: 16em;
+  }
+  
+  .input-group2 {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    margin-left: 33em;
+    width: 30em
+  }
+
+
+  .input-group3 {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    margin-left: 25em;
+    width: 30em
+  }
+
+  .custom-input-wrapper {
+    margin-bottom: 10px;
+  }
+
+
+  .buttonBookNow {
+    width: 12em;
+    height: 2.8em;
+    border: 3px solid black;
+    border-radius: 7px;
+    background-color: #efb810;
+    font-family: "Miltonian Tattoo";
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 21em;
+    margin-top: 1em;
+    color: black;
+  }
+  
+  .buttonBookNow:hover {
+    background-color: #efb71060;
+  }

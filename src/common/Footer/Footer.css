@@ -172,3 +172,19 @@
   left: 0;
   z-index: 1;
 }
+
+.successMessage{
+  background-color: #efb810;
+  color: black; 
+  padding: 10px; 
+  margin-top: 10px; 
+  border-radius: 5px; 
+  text-align: center; 
+  font-weight: bold; 
+  font-size: 1.2em;
+  display: inline-block; 
+  width: 9em;
+  margin-left: 7.7em;
+  font-family: "Miltonian Tattoo";
+  border: 2px solid white;
+}

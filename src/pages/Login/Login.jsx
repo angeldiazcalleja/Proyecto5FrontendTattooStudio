@@ -25,6 +25,7 @@ export const Login = () => {
   const inputHandler = (e) => {
     setLoginDetails((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
+  
 
   const loginHandler = () => {
     login(loginDetails)
