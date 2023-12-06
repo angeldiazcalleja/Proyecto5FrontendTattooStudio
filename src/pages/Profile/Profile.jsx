@@ -190,6 +190,7 @@ export const Profile = () => {
   };
 
   const handleSaveChanges = async () => {
+    console.log(user.credentials.token);
     try {
       await updateUserProfile(
         user.credentials.token,
@@ -200,7 +201,7 @@ export const Profile = () => {
         },
         user.credentials._id
       );
-
+  
       setEditMode(false);
       window.location.reload();
       navigate("/profile");
@@ -238,7 +239,7 @@ export const Profile = () => {
     } else if (currentPage === "MyOrders") {
       return (
         <>
-          {/* Agrega el código específico para "MyOrders" aquí */}
+       
         </>
       );
     }

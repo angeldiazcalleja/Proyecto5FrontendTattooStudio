@@ -26,3 +26,4 @@ ImageWithText.propTypes = {
 };
 
 export default ImageWithText;
+

@@ -37,46 +37,62 @@ export const userProfile = async (token, endpoint) => {
   }
 };
 
-
-export const getAppointments = async (endpoint, token) => {
-  const mettingsUser = await axios.get(`${URL}${endpoint}`, {
-    headers: {
-      Authorization: "Bearer " + token,
-    },
-  });
-  return mettingsUser;
-};
-
-
+// export const modifyProfileUser = async (updatedData, token) => {
+//   const result = await axios.patch(`${userURL}/update-profile`, updatedData, {
+//     headers: {
+//       Authorization: `Bearer ${token}`,
+//     },
+//   });
+//   return result;
+// };
 
 
 export const updateUserProfile = async (token, data) => {
   try {
-    const response = await axios.put("http://localhost:3000/users/profile", data, {
+    const response = await axios.put("http://localhost:3000/users/:_id", data, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
     });
     return response.data;
   } catch (error) {
-    console.error("Error updating user profile:", error.response?.data || error.message);
+    console.error("Error updating user profile:", error);
     throw error;
   }
 };
 
 
-export const createAppointment = async (data, token) => {
-  const headers = {
-    Authorization: "Bearer " + token.credentials,
-  };
-  try {
-  const response = await axios.post("http://localhost:3000/appointments", data, {headers});
-       return response
-  } catch (error) {
-    console.error("Error al crear la cita", error)
-    throw error
-  }
-}
+// export const createAppointment = async (data, token) => {
+//   console.log(data, "esto es data")
+//   const headers = {
+//     Authorization: `Bearer ${token}`,
+//   };
+//   try {
+//   const response = await axios.post("http://localhost:3000/appointments", data, {headers});
+//        return response
+//   } catch (error) {
+//     console.error("Error al crear la cita", error)
+//     throw error
+//   }
+// }
+
+
+export const createAppointment = async (newAppointment, token) => {
+  const result = await axios.post("http://localhost:3000/appointments", newAppointment, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  return result.data;
+};
  
 
+export const getAppointments = async (token) => {
+  const result = await axios.get("http://localhost:3000/appointments", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  return result.data;
+};
 

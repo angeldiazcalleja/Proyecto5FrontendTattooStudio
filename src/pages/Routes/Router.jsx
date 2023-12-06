@@ -7,8 +7,9 @@ import { StudioGallery } from "../StudioGallery/StudioGallery";
 import { Profile } from "../Profile/Profile";
 // import ArtistDetails from "../ArtistsDetails/ArtistsDetails";
 import TattooGallery from "../TattooGallery/TattooGallery";
-import CreateAppointment from "../CreateAppointments/CreateAppointments";
+// import CreateAppointment from "../CreateAppointments/CreateAppointments";
 import { BookNow } from "../BookNow/BookNow";
+import { Appointments } from "../Appointments/Appointments";
 
 export const Router = () => {
   return (
@@ -86,6 +87,7 @@ export const Router = () => {
             </>
           }
         />
+         <Route path="/appointments" element={<Appointments />} />
 
       </Routes>
     </>

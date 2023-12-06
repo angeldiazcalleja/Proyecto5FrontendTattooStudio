@@ -31,6 +31,7 @@ export const Login = () => {
     login(loginDetails)
       .then((res) => {
         const token = jwtDecode(res.data.token);
+     console.log(token.role)
         dispatch(userLogin({ credentials: token, token: res.data.token }));
         setMsg(`Welcome! Good to see you again ${token.name || 'User'}`);
         setTimeout(() => {

@@ -37,7 +37,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    transform: translateY(50%); /* Ajustado para centrar verticalmente */
+    transform: translateY(50%);
   }
   
   .specialty {

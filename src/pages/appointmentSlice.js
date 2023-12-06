@@ -1,28 +1,20 @@
-
-
 import { createSlice } from "@reduxjs/toolkit";
 
-export const appointmentsSlice = createSlice({
+export const appointmentSlice = createSlice({
   name: "appointment",
   initialState: {
-    credentials: {},
-    idAppointment: "",  
+    appointments: [],
   },
   reducers: {
-    createAppointment: (state, action) => {
-        state.credentials = action.payload.credentials;
-        state.idAppointment = action.payload.idAppointment;
-      },
-      // eslint-disable-next-line no-unused-vars
-      removeAppointment: (state, action) => {
-        state.credentials = {};
-        state.idAppointment = "";
-      },
-      
+    setAppointments: (state, action) => {
+      state.appointments = action.payload;
+    },
+    cleanAppointments: (state) => {
+      state.appointments = [];
+    },
   },
 });
 
-export const { createAppointment, removeAppointment } = appointmentsSlice.actions;
-export const appointmentDetails = (state) => state.appointment;
-export default appointmentsSlice.reducer;
-
+export const { setAppointments, cleanAppointments } = appointmentSlice.actions;
+export const appointmentData = (state) => state.appointment;
+export default appointmentSlice.reducer;
