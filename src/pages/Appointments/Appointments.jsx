@@ -1,15 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
-import { setAppointments } from "../../pages/appointmentSlice.js";
 import { getAppointments } from "../../services/apiCalls.js";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { userData } from "../../pages/userSlice.js";
 import { appointmentData } from "../../pages/appointmentSlice.js";
-// import { AppointmentTable } from "./Components/AppointmentTable.jsx";
 import { AppointmentModal } from "./Components/AppointmentModal";
 
 export const Appointments = () => {
-  //   const dispatch = useDispatch();
+
   const { token } = useSelector(userData);
   const appointments = useSelector(appointmentData);
   const [modalOpen, setModalOpen] = useState(false);
@@ -23,8 +21,6 @@ export const Appointments = () => {
 
   const handleAppointmentList = async () => {
     try {
-      //   const result = await getAppointments(token);
-      //   console.log(result)
       getAppointments(token)
         .then((a) => {
           setAllMyAppointments(a.appointments);
@@ -49,20 +45,35 @@ export const Appointments = () => {
       </div>
       <AppointmentModal open={modalOpen} handleClose={handleCloseModal} />
       {allMyAppointments ? (
-        // <AppointmentTable appointments={appointments} />
         <div>
-          {allMyAppointments.map((e) => {
-            return(
-            <div key={e._id}>
-                <p >{e._id}</p>
-                <p > DATE {e.date}</p>
-                <p > START{e.startTime}</p>
-                <p > END{e.endTime}</p>
-                <p >SERVICE{e.service}</p>
-                <p >TATTOOARTIST{e.tattooArtistId}</p>
-            </div>
-            )
-          })}
+          return (
+          <>
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Fecha</th>
+                  <th>Hora de inicio</th>
+                  <th>Hora de fin</th>
+                  <th>Servicio</th>
+                  <th>Tatuador</th>
+                </tr>
+              </thead>
+              <tbody>
+                {allMyAppointments.map((e) => (
+                  <tr key={e._id}>
+                    <td>{e._id}</td>
+                    <td>{e.date}</td>
+                    <td>{e.startTime}</td>
+                    <td>{e.endTime}</td>
+                    <td>{e.service}</td>
+                    <td>{e.tattooArtistId}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </>
+          );
         </div>
       ) : (
         <p>No hay citas</p>

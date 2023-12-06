@@ -1,7 +1,12 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-// import { useEffect, useLayoutEffect } from "react";
+
+
+import { jwtDecode } from "jwt-decode";
+
 
 export const AppointmentForm = ({ formData, setFormData, token }) => {
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -10,11 +15,12 @@ export const AppointmentForm = ({ formData, setFormData, token }) => {
     }));
   };
 
-  const isAdmin = token && token.role === 'admin';
-
+  const decodeToken = jwtDecode(token);
+  const isAdmin = token.role;
+ 
   return (
     <>
-     {isAdmin && (
+     {isAdmin === "admin" ? (
         <div style={{ marginBottom: '20px' }}>
           <label htmlFor="customerId">Id customer:</label>
           <input
@@ -25,6 +31,20 @@ export const AppointmentForm = ({ formData, setFormData, token }) => {
             required
           />
         </div>
+      ):(
+        <>
+        <label htmlFor="customer">Customer:</label>
+        <select
+        id="customerId"
+        name="customerId"
+        value={formData.customerId}
+        onChange={handleInputChange}
+      >
+        <option value="655a869ad757ff84ae8b7e71">Ikan</option>
+        <option value="655a8778d757ff84ae8b7e74">Sandra</option>
+        <option value="655a8791d757ff84ae8b7e77">George</option>
+      </select>
+        </>
       )}
 
       <div style={{ marginBottom: "20px" }}>

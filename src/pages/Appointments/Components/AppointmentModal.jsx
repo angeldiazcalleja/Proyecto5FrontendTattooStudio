@@ -44,7 +44,7 @@ export const AppointmentModal = ({ open, handleClose }) => {
           <p>
             Agendar nueva cita
           </p>
-          <AppointmentForm formData={formData} setFormData={setFormData} />
+          <AppointmentForm formData={formData} setFormData={setFormData} token={token} />
           <button onClick={handleCreateAppointment}>
             Enviar
           </button>
