@@ -1,38 +1,33 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
-import { getAppointments, deleteAppointment } from "../../services/apiCalls.js";
+import {
+  getAppointments,
+  deleteAppointment,
+  modifyAppointment,
+} from "../../services/apiCalls.js";
 import { useSelector } from "react-redux";
 import { userData } from "../../pages/userSlice.js";
-import { appointmentData } from "../../pages/appointmentSlice.js";
-import { AppointmentModal } from "./Components/AppointmentModal";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash, faEdit } from '@fortawesome/free-solid-svg-icons';
-import { jwtDecode } from "jwt-decode";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash, faEdit } from "@fortawesome/free-solid-svg-icons";
+import { AppointmentModal } from "./Components/AppointmentModal.jsx";
 
 export const Appointments = () => {
-
   const { token } = useSelector(userData);
-  const appointments = useSelector(appointmentData);
   const [modalOpen, setModalOpen] = useState(false);
   const [allMyAppointments, setAllMyAppointments] = useState([]);
-
-  const decodeToken = jwtDecode(token);
-
+  const [selectedAppointment, setSelectedAppointment] = useState(null);
 
   const handleOpenModal = () => setModalOpen(true);
   const handleCloseModal = () => {
-    setModalOpen(false), handleAppointmentList();
+    setModalOpen(false);
+    handleAppointmentList();
   };
 
   const handleAppointmentList = async () => {
     try {
-      getAppointments(token)
-        .then((a) => {
-          setAllMyAppointments(a.appointments);
-        })
-        .catch((e) => console.log(e));
+      const appointments = await getAppointments(token);
+      setAllMyAppointments(appointments.appointments);
     } catch (error) {
       console.log(error);
     }
@@ -43,17 +38,26 @@ export const Appointments = () => {
   }, []);
 
   const handleEdit = (appointmentId) => {
-    // Implementa la lógica para editar la cita con el ID proporcionado
-    console.log(`Editando cita con ID: ${appointmentId}`);
+    setSelectedAppointment(appointmentId);
+    handleOpenModal();
   };
 
   const handleDelete = async (appointmentId) => {
-      deleteAppointment( token, appointmentId)
-      .then((a) => console.log(a)  
-      )
-      .catch((error) => console.log(error));
+    try {
+      await deleteAppointment(token, appointmentId);
+      handleAppointmentList();
+    } catch (error) {
+      console.log(error);
+    }
   };
-  
+
+  const handleSaveChanges = async (appointmentId) => {
+    modifyAppointment(token, appointmentId)
+      .then((e) => handleCloseModal())
+      .catch((error) => console.log(error));
+    handleAppointmentList();
+  };
+
   return (
     <div>
       <div>
@@ -62,50 +66,52 @@ export const Appointments = () => {
           Pedir Cita
         </button>
       </div>
-      <AppointmentModal open={modalOpen} handleClose={handleCloseModal} />
+      <AppointmentModal
+        open={modalOpen}
+        handleClose={handleCloseModal}
+        appointment={selectedAppointment}
+        handleSaveChanges={handleSaveChanges}
+      />
       {allMyAppointments ? (
         <div>
-          return (
-          <>
-            <table>
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Fecha</th>
-                  <th>Hora de inicio</th>
-                  <th>Hora de fin</th>
-                  <th>Servicio</th>
-                  <th>Tatuador</th>
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Fecha</th>
+                <th>Hora de inicio</th>
+                <th>Hora de fin</th>
+                <th>Servicio</th>
+                <th>Tatuador</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              {allMyAppointments.map((e) => (
+                <tr key={e._id}>
+                  <td>{e._id}</td>
+                  <td>{e.date}</td>
+                  <td>{e.startTime}</td>
+                  <td>{e.endTime}</td>
+                  <td>{e.customerId}</td>
+                  <td>{e.service}</td>
+                  <td>{e.tattooArtistId}</td>
+                  <td>
+                    <FontAwesomeIcon
+                      icon={faEdit}
+                      onClick={() => handleEdit(e)}
+                      style={{ cursor: "pointer", marginRight: "10px" }}
+                    />
+                    <FontAwesomeIcon
+                      icon={faTrash}
+                      onClick={() => handleDelete(e._id)}
+                      style={{ cursor: "pointer" }}
+                    />
+                  </td>
                 </tr>
-              </thead>
-              <tbody>
-                {allMyAppointments.map((e) => (
-                  <tr key={e._id}>
-                    <td>{e._id}</td>
-                    <td>{e.date}</td>
-                    <td>{e.startTime}</td>
-                    <td>{e.endTime}</td>
-                    <td>{e.service}</td>
-                    <td>{e.tattooArtistId}</td>
-                    <td>
-                {/* Agrega los iconos a las celdas de acciones */}
-                <FontAwesomeIcon
-                  icon={faEdit}
-                  onClick={() => handleEdit(e._id)}
-                  style={{ cursor: 'pointer', marginRight: '10px' }}
-                />
-                <FontAwesomeIcon
-                  icon={faTrash}
-                  onClick={() => handleDelete(e._id)}
-                  style={{ cursor: 'pointer' }}
-                />
-              </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </>
-          );
+              ))}
+            </tbody>
+          </table>
         </div>
       ) : (
         <p>No hay citas</p>

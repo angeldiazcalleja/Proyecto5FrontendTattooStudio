@@ -23,6 +23,8 @@ export const registerUser = async (data) => {
 };
 
 
+
+
 export const userProfile = async (token, endpoint) => {
   try {
     const response = await axios.get(`http://localhost:3000/users/${endpoint}`, {
@@ -37,14 +39,7 @@ export const userProfile = async (token, endpoint) => {
   }
 };
 
-// export const modifyProfileUser = async (updatedData, token) => {
-//   const result = await axios.patch(`${userURL}/update-profile`, updatedData, {
-//     headers: {
-//       Authorization: `Bearer ${token}`,
-//     },
-//   });
-//   return result;
-// };
+
 
 
 export const updateUserProfile = async (token, data) => {
@@ -60,22 +55,6 @@ export const updateUserProfile = async (token, data) => {
     throw error;
   }
 };
-
-
-// export const createAppointment = async (data, token) => {
-//   console.log(data, "esto es data")
-//   const headers = {
-//     Authorization: `Bearer ${token}`,
-//   };
-//   try {
-//   const response = await axios.post("http://localhost:3000/appointments", data, {headers});
-//        return response
-//   } catch (error) {
-//     console.error("Error al crear la cita", error)
-//     throw error
-//   }
-// }
-
 
 export const createAppointment = async (newAppointment, token) => {
   const result = await axios.post("http://localhost:3000/appointments", newAppointment, {
@@ -96,6 +75,16 @@ export const getAppointments = async (token) => {
   return result.data;
 };
 
+
+export const modifyAppointment = async ( token, appointmentId, formData) => {
+  console.log(formData)
+  const result = await axios.put("http://localhost:3000/appointments/" + appointmentId, formData, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  return result;
+};
 
 export const deleteAppointment = async ( token, appointmentId) => {
   const result = await axios.delete("http://localhost:3000/appointments/" + appointmentId,  {

@@ -80,14 +80,19 @@ export const Router = () => {
           }
         />
           <Route
-          path="/booknow"
+          path="/"
           element={
             <>
               <BookNow />
             </>
           }
         />
-         <Route path="/appointments" element={<Appointments />} />
+         <Route path="/appointments" element={
+          <>
+          <Header showHeader={true} />
+         <Appointments />
+         </>
+         } />
 
       </Routes>
     </>

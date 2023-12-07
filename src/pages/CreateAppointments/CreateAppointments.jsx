@@ -1,44 +1,44 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { createAppointment } from "../../services/apiCalls";
+// import { useState } from "react";
+// import { useDispatch } from "react-redux";
+// import { createAppointment } from "../../services/apiCalls";
 import "./CreateAppointments.css";
 import ImageTattoo from "../../assets/ImagesBookNow/ImageTattoo.png";
 import ImagePiercing from "../../assets/ImagesBookNow/ImagePiercing.png";
 import ImageLaser from "../../assets/ImagesBookNow/ImageLaser.png";
-import Inputs from "../../common/Input/Input";
+// import Inputs from "../../common/Input/Input";
 
 const CreateAppointment = () => {
-  // eslint-disable-next-line no-unused-vars
-  const dispatch = useDispatch();
-  const [formData, setFormData] = useState({
-    customerName: "",
-    customerSurname: "",
-    tattooArtistName: "",
-    tattooArtistSurname: "",
-    date: "",
-    startTime: "",
-    endTime: "",
-    service: "",
-    price: "",
-    comments: "",
-  });
+  // // eslint-disable-next-line no-unused-vars
+  // const dispatch = useDispatch();
+  // const [formData, setFormData] = useState({
+  //   customerName: "",
+  //   customerSurname: "",
+  //   tattooArtistName: "",
+  //   tattooArtistSurname: "",
+  //   date: "",
+  //   startTime: "",
+  //   endTime: "",
+  //   service: "",
+  //   price: "",
+  //   comments: "",
+  // });
 
-  const handleInputChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
+  // const handleInputChange = (e) => {
+  //   setFormData({
+  //     ...formData,
+  //     [e.target.name]: e.target.value,
+  //   });
+  // };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await createAppointment(formData);
-      console.log("Cita creada con éxito:", response);
-    } catch (error) {
-      console.error("Error al crear la cita:", error);
-    }
-  };
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     const response = await createAppointment(formData);
+  //     console.log("Cita creada con éxito:", response);
+  //   } catch (error) {
+  //     console.error("Error al crear la cita:", error);
+  //   }
+  // };
 
   return (
     <div className="containerBookNow">
@@ -73,7 +73,7 @@ const CreateAppointment = () => {
         </div>
       </div>
 
-      <div className="containerForm">
+      {/* <div className="containerForm">
         <div className="lineFormBook"></div>
         <div className="inputsForm">
           <h2 className="tittleDate"> Book Your Date</h2>
@@ -150,10 +150,10 @@ const CreateAppointment = () => {
           />
         </div>
         <button className="buttonBookNow" type="submit">Submit</button>
-            </form>
-          </div>
+            </form> */}
+          {/* </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
