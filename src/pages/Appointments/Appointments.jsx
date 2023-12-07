@@ -1,10 +1,15 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
-import { getAppointments } from "../../services/apiCalls.js";
+import { getAppointments, deleteAppointment } from "../../services/apiCalls.js";
 import { useSelector } from "react-redux";
 import { userData } from "../../pages/userSlice.js";
 import { appointmentData } from "../../pages/appointmentSlice.js";
 import { AppointmentModal } from "./Components/AppointmentModal";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash, faEdit } from '@fortawesome/free-solid-svg-icons';
+import { jwtDecode } from "jwt-decode";
+
 
 export const Appointments = () => {
 
@@ -13,8 +18,10 @@ export const Appointments = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [allMyAppointments, setAllMyAppointments] = useState([]);
 
-  const handleOpenModal = () => setModalOpen(true);
+  const decodeToken = jwtDecode(token);
 
+
+  const handleOpenModal = () => setModalOpen(true);
   const handleCloseModal = () => {
     setModalOpen(false), handleAppointmentList();
   };
@@ -33,8 +40,20 @@ export const Appointments = () => {
 
   useEffect(() => {
     handleAppointmentList();
-    console.log(appointments);
   }, []);
+
+  const handleEdit = (appointmentId) => {
+    // Implementa la lógica para editar la cita con el ID proporcionado
+    console.log(`Editando cita con ID: ${appointmentId}`);
+  };
+
+  const handleDelete = async (appointmentId) => {
+      deleteAppointment( token, appointmentId)
+      .then((a) => console.log(a)  
+      )
+      .catch((error) => console.log(error));
+  };
+  
   return (
     <div>
       <div>
@@ -68,6 +87,19 @@ export const Appointments = () => {
                     <td>{e.endTime}</td>
                     <td>{e.service}</td>
                     <td>{e.tattooArtistId}</td>
+                    <td>
+                {/* Agrega los iconos a las celdas de acciones */}
+                <FontAwesomeIcon
+                  icon={faEdit}
+                  onClick={() => handleEdit(e._id)}
+                  style={{ cursor: 'pointer', marginRight: '10px' }}
+                />
+                <FontAwesomeIcon
+                  icon={faTrash}
+                  onClick={() => handleDelete(e._id)}
+                  style={{ cursor: 'pointer' }}
+                />
+              </td>
                   </tr>
                 ))}
               </tbody>
