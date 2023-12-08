@@ -11,6 +11,7 @@ import { userData } from "../../pages/userSlice.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faEdit } from "@fortawesome/free-solid-svg-icons";
 import { AppointmentModal } from "./Components/AppointmentModal.jsx";
+import "./Appointments.css"
 
 export const Appointments = () => {
   const { token } = useSelector(userData);
@@ -59,9 +60,9 @@ export const Appointments = () => {
   };
 
   return (
-    <div>
+    <div className="appointmentContainer">
       <div>
-        <p style={{ color: "#ad9859" }}>Citas</p>
+        <p>Citas</p>
         <button type="submit" onClick={handleOpenModal}>
           Pedir Cita
         </button>

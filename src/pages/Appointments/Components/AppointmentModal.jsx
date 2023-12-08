@@ -61,6 +61,7 @@ import { createAppointment, modifyAppointment, getAppointments } from "../../../
 import { setAppointments } from "../../../pages/appointmentSlice.js";
 import { userData } from "../../../pages/userSlice.js";
 import { AppointmentForm } from "./AppointmentForm.jsx";
+import "./AppointmentModal.css"
 
 export const AppointmentModal = ({ open, handleClose, appointment }) => {
   const dispatch = useDispatch();
@@ -119,16 +120,20 @@ export const AppointmentModal = ({ open, handleClose, appointment }) => {
   };
 
   return (
-    <div>
+    <div className="containerModal">
       <div open={open} onClose={handleClose}>
         <div>
-          <p>{appointment ? "Editar cita" : "Agendar nueva cita"}</p>
-          <AppointmentForm formData={formData} setFormData={setFormData} token={token} />
-          <button onClick={handleSaveChanges}>
-            {appointment ? "Guardar Cambios" : "Enviar"}
-          </button>
+          <p className="titleModal">{appointment ? "Edit Appointment" : "Book Now"}</p>
+          <AppointmentForm formData={formData} setFormData={setFormData} token={token} handleSaveChanges={handleSaveChanges} appointment={appointment}/>
+          {/* <button className="buttonForm"onClick={handleSaveChanges}>
+            {appointment ? "Save Changes" : "Send"}
+          </button>     */}
         </div>
       </div>
     </div>
   );
 };
+
+
+
+          

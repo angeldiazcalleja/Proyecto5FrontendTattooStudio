@@ -90,12 +90,6 @@
   font-size: 1em;
 }
 
-/* 
-.buttonLogout{
-  background-color: black;
-  color: white;
-} */
-
 .buttonLogout {
   color: white;
   font-weight: bold;
@@ -113,7 +107,7 @@
 .custom-home {
   color: #efb810;
   text-decoration: none;
-  margin-left: 8.3em;
+  margin-left: 4.5em;
   margin-top: 0.8em;
   font-size: 2em;
   font-weight: bold;

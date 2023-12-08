@@ -1,13 +1,13 @@
 // import { useState } from "react";
 // import { useDispatch } from "react-redux";
 // import { createAppointment } from "../../services/apiCalls";
-import "./CreateAppointments.css";
+import "./InfoAppointments.css";
 import ImageTattoo from "../../assets/ImagesBookNow/ImageTattoo.png";
 import ImagePiercing from "../../assets/ImagesBookNow/ImagePiercing.png";
 import ImageLaser from "../../assets/ImagesBookNow/ImageLaser.png";
 // import Inputs from "../../common/Input/Input";
 
-const CreateAppointment = () => {
+export const InfoAppointment = () => {
   // // eslint-disable-next-line no-unused-vars
   // const dispatch = useDispatch();
   // const [formData, setFormData] = useState({
@@ -158,4 +158,4 @@ const CreateAppointment = () => {
   );
 };
 
-export default CreateAppointment;
+export default InfoAppointment;

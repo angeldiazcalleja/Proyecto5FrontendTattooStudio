@@ -84,7 +84,7 @@
   }
 
   .informationDate{
-    color: black;
+    color: #efb810;
     font-weight: bold;
     padding-top: 1.5em;
     padding-left: 0.5em;
@@ -94,13 +94,6 @@
   }
 
 
-  .formDate{
-    width: 80em;
-    height: 29em;
-    background-color: #efb710d8;
-    border-radius: 8px;
-    margin-left: 23.5em;
-  }
 
 
   .informationForm{

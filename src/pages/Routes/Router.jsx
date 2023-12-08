@@ -5,10 +5,8 @@ import { Header } from "../../common/Header/Header";
 import { RegisterUser } from "../Register/Register";
 import { StudioGallery } from "../StudioGallery/StudioGallery";
 import { Profile } from "../Profile/Profile";
-// import ArtistDetails from "../ArtistsDetails/ArtistsDetails";
 import TattooGallery from "../TattooGallery/TattooGallery";
-// import CreateAppointment from "../CreateAppointments/CreateAppointments";
-import { BookNow } from "../BookNow/BookNow";
+import InfoComponent from "../InfoComponent/InfoComponent";
 import { Appointments } from "../Appointments/Appointments";
 
 export const Router = () => {
@@ -80,14 +78,14 @@ export const Router = () => {
           }
         />
           <Route
-          path="/"
+          path="/info"
           element={
             <>
-              <BookNow />
+              <InfoComponent />
             </>
           }
         />
-         <Route path="/appointments" element={
+         <Route path="/booknow" element={
           <>
           <Header showHeader={true} />
          <Appointments />

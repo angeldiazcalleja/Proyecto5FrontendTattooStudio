@@ -2,7 +2,9 @@
 /* eslint-disable react/prop-types */
 
 import { jwtDecode } from "jwt-decode";
-export const AppointmentForm = ({ formData, setFormData, token }) => {
+import "./AppointmentForm.css";
+
+export const AppointmentForm = ({ formData, setFormData, token, handleSaveChanges, appointment }) => {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -16,98 +18,132 @@ export const AppointmentForm = ({ formData, setFormData, token }) => {
 
   return (
     <>
-      {isAdmin === "admin" ? (
-        <div style={{ marginBottom: "20px" }}>
-          <label htmlFor="customerId">Id customer:</label>
-          <input
-            type="text"
-            id="customerId"
-            name="customerId"
-            onChange={handleInputChange}
-            required
-          />
+      <div className="formDate">
+        <span className="informationDate">
+          <p>
+            Please fill out the form if you would like to schedule an appointment
+            with our staff.
+          </p>
+          <p>Depending on the design, a consultation may be necessary. </p>
+          <p>
+            To secure your appointment, a fee is required and can be paid either
+            at the studio or through bank transfer.
+          </p>
+          <p>Details for the bank transfer are available upon request.</p>
+        </span>
+        <div className="lineForm"></div>
+        <div className="formRow">
+          <div className="formColumn">
+            {isAdmin === "admin" ? (
+              <div style={{ marginBottom: "20px" }}>
+                <label className="labelForm" htmlFor="customerId">Id customer</label>
+                <input
+                  className="inputForm"
+                  type="text"
+                  id="customerId"
+                  name="customerId"
+                  onChange={handleInputChange}
+                  required
+                />
+              </div>
+            ) : (
+              <>
+                <label className="labelForm" htmlFor="customer">Customer</label>
+                <select
+                    className="inputForm"
+                  id="customerId"
+                  name="customerId"
+                  value={formData.customerId}
+                  onChange={handleInputChange}
+                >
+                  <option value="655a869ad757ff84ae8b7e71">Ikan</option>
+                  <option value="655a8778d757ff84ae8b7e74">Sandra</option>
+                  <option value="655a8791d757ff84ae8b7e77">George</option>
+                </select>
+              </>
+            )}
+          </div>
+
+          <div className="formColumn">
+            <label className="labelForm" htmlFor="date">Date</label>
+            <input
+              className="inputForm"
+              type="date"
+              id="date"
+              name="date"
+              value={formData.date}
+              onChange={handleInputChange}
+              required
+            />
+          </div>
         </div>
-      ) : (
-        <>
-          <label htmlFor="customer">Customer:</label>
-          <select
-            id="customerId"
-            name="customerId"
-            value={formData.customerId}
-            onChange={handleInputChange}
-          >
-            <option value="655a869ad757ff84ae8b7e71">Ikan</option>
-            <option value="655a8778d757ff84ae8b7e74">Sandra</option>
-            <option value="655a8791d757ff84ae8b7e77">George</option>
-          </select>
-        </>
-      )}
 
-      <div style={{ marginBottom: "20px" }}>
-        <label htmlFor="date">Date:</label>
-        <input
-          type="date"
-          id="date"
-          name="date"
-          value={formData.date}
-          onChange={handleInputChange}
-          required
-        />
-      </div>
+        <div className="formRow">
+          <div className="formColumn">
+            <label className="labelForm" htmlFor="startTime">Start Time</label>
+            <input
+              className="inputForm"
+              type="datetime-local"
+              id="startTime"
+              name="startTime"
+              value={formData.startTime}
+              onChange={handleInputChange}
+              required
+            />
+          </div>
 
-      <div style={{ marginBottom: "20px" }}>
-        <label htmlFor="startTime">Star Time:</label>
-        <input
-          type="datetime-local"
-          id="startTime"
-          name="startTime"
-          value={formData.startTime}
-          onChange={handleInputChange}
-          required
-        />
-      </div>
+          <div className="formColumn">
+            <label className="labelForm" htmlFor="endTime">End Time</label>
+            <input
+              className="inputForm"
+              type="datetime-local"
+              id="endTime"
+              name="endTime"
+              value={formData.endTime}
+              onChange={handleInputChange}
+              required
+            />
+          </div>
+        </div>
 
-      <div style={{ marginBottom: "20px" }}>
-        <label htmlFor="endTime">End Time:</label>
-        <input
-          type="datetime-local"
-          id="endTime"
-          name="endTime"
-          value={formData.endTime}
-          onChange={handleInputChange}
-          required
-        />
-      </div>
+        <div className="formRow">
+          <div className="formColumn">
+            <label className="labelForm" htmlFor="service">Service</label>
+            <select
+              className="inputForm"
+              id="service"
+              name="service"
+              value={formData.service}
+              onChange={handleInputChange}
+            >
+              <option value="tattoo">Tattoo</option>
+              <option value="piercing">Piercing</option>
+              <option value="laserTattoo">Laser</option>
+            </select>
+          </div>
 
-      <div style={{ marginBottom: "20px" }}>
-        <label htmlFor="service">Service:</label>
-        <select
-          id="service"
-          name="service"
-          value={formData.service}
-          onChange={handleInputChange}
-        >
-          <option value="tattoo">Tattoo</option>
-          <option value="piercing">Piercing</option>
-          <option value="laserTattoo">Laser</option>
-        </select>
-      </div>
-
-      <div style={{ marginBottom: "20px" }}>
-        <label htmlFor="tattooArtist">Artist:</label>
-        <select
-          id="tattooArtistId"
-          name="tattooArtistId"
-          value={formData.tattooArtistId}
-          onChange={handleInputChange}
-        >
-          <option value="655a8946d757ff84ae8b7e85">X</option>
-          <option value="655a896cd757ff84ae8b7e88">Y</option>
-          <option value="655a898bd757ff84ae8b7e8b">Z</option>
-        </select>
+          <div className="formColumn">
+            <label className="labelForm" htmlFor="tattooArtist">Artist</label>
+            <select
+              className="inputForm"
+              id="tattooArtistId"
+              name="tattooArtistId"
+              value={formData.tattooArtistId}
+              onChange={handleInputChange}
+            >
+              <option value="655a8946d757ff84ae8b7e85">X</option>
+              <option value="655a896cd757ff84ae8b7e88">Y</option>
+              <option value="655a898bd757ff84ae8b7e8b">Z</option>
+            </select>
+          </div>
+        </div>
+            <button className="buttonForm" onClick={handleSaveChanges}>
+              {appointment ? "Save Changes" : "Send"}
+            </button>
       </div>
     </>
   );
 };
 
 export default AppointmentForm;
+

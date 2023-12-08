@@ -1,16 +1,16 @@
 import { Header } from "../../common/Header/Header";
-import CreateAppointment from "../CreateAppointments/CreateAppointments";
+import  InfoAppointment from "../infoAppointments/infoAppointments";
 import { PriceList } from "../PriceList/PriceList";
 
 
 
-export const BookNow = () => {
+export const InfoComponent = () => {
   return (
     <div className="principalView">
       <Header showHeader={true} />
 
-      <div id="createappointment">
-        <CreateAppointment />
+      <div id="infoAppointment">
+        <InfoAppointment />
       </div>
 
       <div id="pricelist">
@@ -21,7 +21,7 @@ export const BookNow = () => {
 };
 
 
-export default BookNow
+export default InfoComponent
 
 
 
