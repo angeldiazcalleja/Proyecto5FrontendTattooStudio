@@ -22,8 +22,8 @@ export const registerUser = async (data) => {
 };
 
 
-// apiCalls.js
-export const getAllUsers = async (token, page, searchEmail) => {
+
+export const getAllUsers = async (token, page) => {
   try {
     const response = await axios.get("http://localhost:3000/users", {
       headers: {
@@ -31,7 +31,6 @@ export const getAllUsers = async (token, page, searchEmail) => {
       },
       params: {
         page,
-        search: searchEmail,
       },
     });
 
