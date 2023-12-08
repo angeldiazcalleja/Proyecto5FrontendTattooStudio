@@ -150,5 +150,102 @@
   width: 15em;
 }
 
+/* En tu hoja de estilos CSS */
+@keyframes slideIn {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(6em);
+  }
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  10% {
+    opacity: 1;
+    visibility: visible;
+  }
+  90% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.login-message-container {
+  background-color: black;
+  padding: 0.8em;
+  border-radius: 7px;
+  border: 2px solid  #efb810; 
+  position: fixed;
+  top: 0;
+  left: 0;
+  animation:  slideIn 0.5s ease-out, fadeInOut 2s forwards;
+  width: 20%;
+  margin-left: 52em;
+  margin-top: 10em;
+  text-align: center;
+  font-weight: bold;
+  font-family: "Miltonian Tattoo";
+}
+
+.login-message {
+  color: white;
+  font-size: 1.2em;
+}
 
 
+
+
+
+/* 
+@keyframes slideIn {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(5em);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.login-message-container {
+  background-color: black;
+  padding: 0.8em;
+  border-radius: 7px;
+  border: 2px solid  #efb810;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 25%;
+  margin-left: 48.6em;
+  animation: slideIn 0.5s ease-out, fadeOut 0.5s forwards;
+  animation-delay: 1s;
+  visibility: visible;
+  margin-top: 11em;
+  text-align: center;
+  font-weight: bold;
+}
+
+.login-message {
+  
+  animation: fadeOut 0.5s ease-out 1.5s forwards;
+
+  color: white;
+} */

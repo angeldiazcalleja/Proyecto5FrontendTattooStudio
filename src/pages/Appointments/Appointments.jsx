@@ -54,7 +54,6 @@ export const Appointments = () => {
   };
 
   const markAsDeletedLocally = (appointmentId) => {
-    // Actualiza el estado local para marcar la cita como eliminada
     setAllMyAppointments((prevAppointments) =>
       prevAppointments.map((appointment) =>
         appointment._id === appointmentId

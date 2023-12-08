@@ -146,4 +146,3 @@ export const AppointmentForm = ({ formData, setFormData, token, handleSaveChange
 };
 
 export default AppointmentForm;
-

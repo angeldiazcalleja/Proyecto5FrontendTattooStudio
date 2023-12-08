@@ -8,6 +8,7 @@ import { Profile } from "../Profile/Profile";
 import TattooGallery from "../TattooGallery/TattooGallery";
 import InfoComponent from "../InfoComponent/InfoComponent";
 import { Appointments } from "../Appointments/Appointments";
+import Admin from "../Admin/Admin";
 
 export const Router = () => {
   return (
@@ -65,6 +66,15 @@ export const Router = () => {
             <>
               <Header showHeader={true} />
               <Profile />
+            </>
+          }
+        />
+        <Route
+          path="/users"
+          element={
+            <>
+              <Header showHeader={true} />
+              <Admin />
             </>
           }
         />

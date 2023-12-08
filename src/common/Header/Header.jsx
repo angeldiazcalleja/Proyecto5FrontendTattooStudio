@@ -9,7 +9,8 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { userLogout, userData } from "../../pages/userSlice";
 import "./Header.css";
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
 export const Header = ({ showHeader }) => {
   const headerClass = showHeader ? "custom-header" : "custom-header hidden";
@@ -18,7 +19,8 @@ export const Header = ({ showHeader }) => {
   const studioRef = useRef(null);
   const artistsRef = useRef(null);
 
-
+  const navigate = useNavigate();
+  
   const scrollToRef = (ref) => {
     ref.current.scrollIntoView({ behavior: "smooth" });
   };
@@ -32,11 +34,24 @@ export const Header = ({ showHeader }) => {
     dispatch(userLogout());
   };
 
+  const [showLoginMessage, setShowLoginMessage] = useState(false);
+
+  const handleBookNow = () => {
+    if (!hasToken) {
+      setShowLoginMessage(true);
+      setTimeout(() => {
+        setShowLoginMessage(false);
+      }, 2000);
+    } 
+    else {
+     navigate('/booknow');
+    }
+  };
   return (
     <header className={headerClass}>
       <div className="custom-container">
         <nav className="custom-navbar">
-          <div className="custom-text" style={{ scrollBehavior: 'smooth' }}>
+          <div className="custom-text" style={{ scrollBehavior: "smooth" }}>
             {hasToken ? (
               <div className="custom-user">
                 <span
@@ -49,10 +64,12 @@ export const Header = ({ showHeader }) => {
                   <a href="profile" className="custom-dropdown-item">
                     Profile 🚀
                   </a>
-                  <div
-                    className="buttonLogout"
-                    onClick={handleLogout}
-                  >
+                  {user.credentials.role === "admin" && (
+                    <a href="users" className="custom-dropdown-item">
+                      Users 🌟
+                    </a>
+                  )}
+                  <div className="buttonLogout" onClick={handleLogout}>
                     Logout 🔓
                   </div>
                 </div>
@@ -62,20 +79,32 @@ export const Header = ({ showHeader }) => {
                 Login 🔐
               </a>
             )}
-            <a href="home" className="custom-home" onClick={() => scrollToRef(homeRef)}>
+            <a
+              href="home"
+              className="custom-home"
+              onClick={() => scrollToRef(homeRef)}
+            >
               || HOME ||
             </a>
-            <a href="#studio" className="custom" onClick={() => scrollToRef(studioRef)} >
+            <a
+              href="#studio"
+              className="custom"
+              onClick={() => scrollToRef(studioRef)}
+            >
               || STUDIO ||
             </a>
-            <a href="#artists" className="custom" onClick={() => scrollToRef(artistsRef)}>
+            <a
+              href="#artists"
+              className="custom"
+              onClick={() => scrollToRef(artistsRef)}
+            >
               || ARTISTS ||
             </a>
-            <a href="booknow" className="custom">
+            <div className="custom" onClick={handleBookNow}>
               || BOOK NOW ||
-            </a>
+            </div>
             <a href="info" className="custom">
-              ||  INFO ||
+              || INFO ||
             </a>
           </div>
 
@@ -115,6 +144,14 @@ export const Header = ({ showHeader }) => {
           </div>
         </nav>
       </div>
+
+      {showLoginMessage && (
+        <div className="login-message-container">
+        <div className="login-message">
+        To access, you must log in.
+        </div>
+      </div>
+      )}
     </header>
   );
 };
