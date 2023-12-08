@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { getAllUsers } from "../../services/apiCalls";
 import { userData } from "../userSlice";
- import { getAllUsers } from "../../services/apiCalls";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faForward } from "@fortawesome/free-solid-svg-icons";
 import "./Admin.css";
@@ -13,13 +13,15 @@ const Admin = () => {
   const [allUsers, setAllUsers] = useState([]);
   const [filteredUsers, setFilteredUsers] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [searchRole, setSearchRole] = useState("");
+  const [sortOrder, setSortOrder] = useState("ASC");
 
   useEffect(() => {
     const fetchUsers = async () => {
       try {
         const usersData = await getAllUsers(adminToken, currentPage);
         setAllUsers(usersData);
-        applyFiltersAndSort(allUsers);
+        setFilteredUsers(usersData);
       } catch (error) {
         console.error("Error fetching users:", error);
       }
@@ -28,18 +30,14 @@ const Admin = () => {
     fetchUsers();
   }, [adminToken, currentPage]);
 
-
   const applyFiltersAndSort = () => {
     const filteredAndSortedUsers = allUsers.filter((user) => {
-      // Filtrar por rol
       if (searchRole && user.role.toLowerCase() !== searchRole.toLowerCase()) {
         return false;
       }
-  
+
       return true;
     });
-
-    
     if (sortOrder === "ASC") {
       filteredAndSortedUsers.sort((a, b) => a.name.localeCompare(b.name));
     } else if (sortOrder === "DSC") {
@@ -47,25 +45,33 @@ const Admin = () => {
     }
     setFilteredUsers(filteredAndSortedUsers);
   };
-
-  const [searchRole, setSearchRole] = useState("");
-  const [sortOrder, setSortOrder] = useState("ASC");
-
   useEffect(() => {
     applyFiltersAndSort();
   }, [searchRole, sortOrder, currentPage]);
+
+  const handleSearch = async () => {
+    try {
+      const usersData = await getAllUsers(adminToken, currentPage, searchRole, sortOrder);
+      setFilteredUsers(usersData);
+    } catch (error) {
+      console.error("Error fetching users:", error);
+    }
+  };
 
   return (
     <div className="adminContainer">
       <h2 className="titleAdmin"> || User List ||</h2>
 
       <div className="searchControls">
-        <input
-          type="text"
-          placeholder="Search by role..."
+        <select
           value={searchRole}
           onChange={(e) => setSearchRole(e.target.value)}
-        />
+        >
+          <option value="">All Roles</option>
+          <option value="customer">Customer</option>
+          <option value="tattooArtist">Tattoo Artist</option>
+          <option value="admin">Admin</option>
+        </select>
         <select
           value={sortOrder}
           onChange={(e) => setSortOrder(e.target.value)}
@@ -73,6 +79,7 @@ const Admin = () => {
           <option value="ASC">Ascending</option>
           <option value="DSC">Descending</option>
         </select>
+        <button onClick={handleSearch}>Search</button>
       </div>
 
       <table className="userTable">
