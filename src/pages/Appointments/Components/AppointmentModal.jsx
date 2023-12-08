@@ -36,9 +36,6 @@ export const AppointmentModal = ({ open, handleClose, appointment }) => {
   const handleSaveChanges = () => {
 
     if (appointment) {
-      console.log(token, "1")
-      console.log(appointment._id, "2")
-      console.log(formData, "3")
       modifyAppointment(token, appointment._id, formData)
         .then(() => {
           handleClose();

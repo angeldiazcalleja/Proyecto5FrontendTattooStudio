@@ -130,7 +130,7 @@ export const Appointments = () => {
           </table>
         </div>
       ) : (
-        <p>No hay citas</p>
+        <p>There are no appointments available</p>
       )}
     </div>
   );

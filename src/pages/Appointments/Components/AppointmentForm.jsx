@@ -58,7 +58,7 @@ export const AppointmentForm = ({ formData, setFormData, token, handleSaveChange
                 >
                   <option value="655a869ad757ff84ae8b7e71">Ikan Bettah</option>
                   <option value="655a8778d757ff84ae8b7e74">Sandra Black</option>
-                  <option value="655a8791d757ff84ae8b7e77">George President</option>
+                  <option value="655a8791d757ff84ae8b7e77">George</option>
                 </select>
               </>
             )}

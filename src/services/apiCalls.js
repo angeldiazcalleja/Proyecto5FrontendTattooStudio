@@ -2,7 +2,6 @@ import axios from "axios";
 
 export const login = async (data) => {
   try {
-    console.log(data, "soy data");
     const response = await axios.post("http://localhost:3000/auth/login", data);
     return response;
   } catch (error) {
@@ -91,7 +90,6 @@ export const getAppointments = async (token) => {
 
 
 export const modifyAppointment = async ( token, appointmentId, formData) => {
-  console.log(formData)
   const result = await axios.put("http://localhost:3000/appointments/" + appointmentId, formData, {
     headers: {
       Authorization: `Bearer ${token}`,

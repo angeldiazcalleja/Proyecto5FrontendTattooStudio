@@ -33,7 +33,6 @@ export const Profile = () => {
   };
 
   const handleSaveChanges = async () => {
-    console.log(user.credentials.token);
     try {
       await updateUserProfile(
         user.credentials.token,

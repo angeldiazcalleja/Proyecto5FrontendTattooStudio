@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import "./Home.css";
 import glowImage from "../../assets/glowHomeFinal1.png";
 import { useSelector } from "react-redux";
@@ -7,7 +8,6 @@ import { userData } from "../userSlice";
 
 export const Home = () => {
   const rdxToken = useSelector(userData);
-  console.log(rdxToken);
 
   return (
     <>

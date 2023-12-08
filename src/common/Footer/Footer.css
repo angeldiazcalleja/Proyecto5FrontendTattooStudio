@@ -118,7 +118,7 @@
 
 .footer-column {
   flex: 1;
-  margin: 0 2em; /* Agregamos el margen entre columnas */
+  margin: 0 2em; 
 }
 
 .footer-column h4 {
