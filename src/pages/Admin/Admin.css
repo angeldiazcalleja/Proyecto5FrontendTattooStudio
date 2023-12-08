@@ -39,3 +39,24 @@
  .userTable thead{
     border: 3px solid #efb810;
  }
+
+ tr:hover {
+    background-color: #efb710a5;
+  }
+  
+
+ .buttonPage{
+
+    margin-left: 72em;
+    width: 5em;
+    height: 2.5em;
+    margin-top: 2em;
+    border: 2px solid #efb810;;
+ }
+
+ .buttonPage1{
+    width: 5em;
+    height: 2.5em;
+    margin-top: 2em;
+    border: 2px solid #efb810;;
+ }

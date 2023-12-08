@@ -21,11 +21,17 @@ export const registerUser = async (data) => {
   }
 };
 
-export const getAllUsers = async (token) => {
+
+// apiCalls.js
+export const getAllUsers = async (token, page, searchEmail) => {
   try {
     const response = await axios.get("http://localhost:3000/users", {
       headers: {
         Authorization: `Bearer ${token}`,
+      },
+      params: {
+        page,
+        search: searchEmail,
       },
     });
 
@@ -35,7 +41,6 @@ export const getAllUsers = async (token) => {
     throw error; 
   }
 };
-
 
 export const userProfile = async (token, endpoint) => {
   try {

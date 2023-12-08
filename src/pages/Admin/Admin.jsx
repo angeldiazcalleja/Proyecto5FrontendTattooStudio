@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux"; // Eliminé el import innecesario de useDispatch
+import { useSelector } from "react-redux";
 import { getAllUsers } from "../../services/apiCalls";
 import { userData } from "../userSlice";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faForward } from "@fortawesome/free-solid-svg-icons";
 import "./Admin.css";
 
 const Admin = () => {
@@ -9,11 +11,12 @@ const Admin = () => {
   const adminToken = user.token;
 
   const [users, setUsers] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const usersData = await getAllUsers(adminToken);
+        const usersData = await getAllUsers(adminToken, currentPage, searchEmail);
         setUsers(usersData);
       } catch (error) {
         console.error("Error fetching users:", error);
@@ -21,13 +24,18 @@ const Admin = () => {
     };
 
     fetchUsers();
-  }, [adminToken]);
-
+  }, [adminToken, currentPage]);
 
   return (
     <div className="adminContainer">
       <h2 className="titleAdmin"> || User List ||</h2>
-      <table className="userTable" >
+      <input
+        type="text"
+        placeholder="Search by Email"
+        value={searchEmail}
+        onChange={(e) => setSearchEmail(e.target.value)}
+      />
+      <table className="userTable">
         <thead className="theadAdmin">
           <tr className="theadAdmin">
             <th>Name</th>
@@ -47,6 +55,26 @@ const Admin = () => {
           ))}
         </tbody>
       </table>
+      <button
+        className="buttonPage"
+        onClick={() => setCurrentPage(currentPage - 1)}
+        disabled={currentPage === 1}
+      >
+        <FontAwesomeIcon
+          icon={faForward}
+          rotation={180}
+          style={{
+            "--fa-primary-color": "#efb810",
+            "--fa-secondary-color": "#efb810",
+          }}
+        />
+      </button>
+      <button
+        className="buttonPage1"
+        onClick={() => setCurrentPage(currentPage + 1)}
+      >
+        <FontAwesomeIcon icon={faForward} style={{ color: "#efb810" }} />
+      </button>
     </div>
   );
 };
