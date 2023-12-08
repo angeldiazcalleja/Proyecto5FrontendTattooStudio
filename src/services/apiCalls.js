@@ -13,7 +13,6 @@ export const login = async (data) => {
 
 export const registerUser = async (data) => {
   try {
-    console.log(data, "soy data");
     const response = await axios.post("http://localhost:3000/users", data);
     return response;
   } catch (error) {
@@ -22,7 +21,20 @@ export const registerUser = async (data) => {
   }
 };
 
+export const getAllUsers = async (token) => {
+  try {
+    const response = await axios.get("http://localhost:3000/users", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
 
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching users:', error);
+    throw error; 
+  }
+};
 
 
 export const userProfile = async (token, endpoint) => {
@@ -38,8 +50,6 @@ export const userProfile = async (token, endpoint) => {
     throw error;
   }
 };
-
-
 
 
 export const updateUserProfile = async (token, data) => {

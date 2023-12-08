@@ -1,0 +1,41 @@
+.adminContainer{
+    margin-top: 6em;
+    background-image: url("../../assets/bgAdmin.avif");
+    background-size: cover;
+    overflow: hidden;
+    height: 60em;
+}
+
+.titleAdmin{
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    font-family: "Miltonian Tattoo";
+    color: #efb810;
+    margin-top: 2em;
+}
+
+.userTable {
+    width: calc(100% - 8em);
+    margin: 0 4em;
+    background-color: black;
+    color: white;
+    border-collapse: collapse;
+    border-radius: 10px;
+
+  }
+  
+ .userTable td {
+    border: 1px solid #efb810;
+    padding: 12px; 
+  }
+
+ .userTable th{
+ background-color: #efb810;
+ border: 2px solid black;
+ border-radius: 0px;
+ }
+
+ .userTable thead{
+    border: 3px solid #efb810;
+ }
