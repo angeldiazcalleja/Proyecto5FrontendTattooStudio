@@ -61,11 +61,11 @@ Este Frontend completa el Backend realizado para el estudio de tatuajes **INKS S
 
 ## Login - Register
 
-<img src="src/assets/Readme/Login1.png" alt="Descripción de la imagen 1" width="700" /> <img src="src/assets/Readme/LoginError.png" alt="Descripción de la imagen 2" width="700" height="478"/>
+<img src="src/assets/Readme/Login1.png" alt="Descripción de la imagen 1" width="700" height="400"/> <img src="src/assets/Readme/LoginError.png" alt="Descripción de la imagen 2" width="700" height="400"/>
 
 En caso de no introducir un email y una contraseña que cumplan con los requisitos, aparecen mensajes de alerta. Esto también sucede en el caso del registro.
 
-<img src="src/assets/Readme/Register.png" alt="Descripción de la imagen 1" width="700" /> <img src="src/assets/Readme/Register1.png" alt="Descripción de la imagen 2" width="700" />
+<img src="src/assets/Readme/Register.png" alt="Descripción de la imagen 1" width="700" height="400" /> <img src="src/assets/Readme/Register1.png" alt="Descripción de la imagen 2" width="700" height="400" />
 
 Una vez registrado, se debe hacer login para poder acceder. Aparecerá un mensaje de bienvenida posteriormente.
 
@@ -84,6 +84,12 @@ Solo se puede acceder si existe **token**, es decir, si se ha logueado el usuari
 
 El borrado de citas se hace de forma lógica, mateniendo la información, pero deshabilitando su celda y aclarando su color. 
 
+## Info
+
+Lista de los diferentes servicios y precios.
+
+<img src="src/assets/Readme/Price.png" alt="Descripción de la imagen 1" width="700" /> <img src="src/assets/Readme/Price2.png" alt="Descripción de la imagen 2" width="700" />
+
 ## Contribuciones
 
 Las contribuciones son bienvenidas. Si encuentras algún problema o tienes una mejora, ¡no dudes en abrir un problema o enviar un pull request!
@@ -92,7 +98,7 @@ Las contribuciones son bienvenidas. Si encuentras algún problema o tienes una m
 
 Este proyecto pertenece a **Ángel Díaz Calleja** y ha sido creado como proyecto del Bootcamp Full Stack Developer de GeeksHubs Academy.
 
-<img src= "assets/geek-logo.png" width="100"> 
+<img src= "src/assets/Readme/geek-logo.png" width="100"> 
 
 
 
