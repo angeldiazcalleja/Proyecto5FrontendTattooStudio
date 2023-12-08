@@ -64,22 +64,26 @@ const Admin = () => {
 
       <div className="searchControls">
         <select
+        className="selectUsers"
           value={searchRole}
           onChange={(e) => setSearchRole(e.target.value)}
         >
-          <option value="">All Roles</option>
-          <option value="customer">Customer</option>
-          <option value="tattooArtist">Tattoo Artist</option>
-          <option value="admin">Admin</option>
+          <option className="textSelectuser" value="">All Roles</option>
+          <option className="textSelectuser" value="customer">Customer</option>
+          <option className="textSelectuser" value="tattooArtist">Tattoo Artist</option>
+          <option className="textSelectuser" value="admin">Admin</option>
+
+        
         </select>
         <select
+        className="selectUsers"
           value={sortOrder}
           onChange={(e) => setSortOrder(e.target.value)}
-        >
+         >
           <option value="ASC">Ascending</option>
           <option value="DSC">Descending</option>
         </select>
-        <button onClick={handleSearch}>Search</button>
+        <button className="buttonSearch"onClick={handleSearch}>Search</button>
       </div>
 
       <table className="userTable">
