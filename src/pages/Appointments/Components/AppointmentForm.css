@@ -26,7 +26,8 @@
     justify-content: center;
     margin: auto;
     border-radius: 8px;
-    margin-left: 23.5em;
+    border: 2px solid #efb810;
+    margin-left: 18.5em;
     margin-top: -3em;
     padding: 0 5em;
     height: 35em;
@@ -79,7 +80,7 @@
   border: 3px solid black;
   background-color: #efb810;
   color: black;
-  margin-top: 2em;
+  margin-top: 1.6em;
   font-weight: bold;
   text-transform: uppercase;
   font-family: "Miltonian Tattoo";

@@ -45,11 +45,23 @@ export const Appointments = () => {
 
   const handleDelete = async (appointmentId) => {
     try {
+      markAsDeletedLocally(appointmentId);
       await deleteAppointment(token, appointmentId);
       handleAppointmentList();
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const markAsDeletedLocally = (appointmentId) => {
+    // Actualiza el estado local para marcar la cita como eliminada
+    setAllMyAppointments((prevAppointments) =>
+      prevAppointments.map((appointment) =>
+        appointment._id === appointmentId
+          ? { ...appointment, isDeleted: true }
+          : appointment
+      )
+    );
   };
 
   const handleSaveChanges = async (appointmentId) => {
@@ -62,9 +74,9 @@ export const Appointments = () => {
   return (
     <div className="appointmentContainer">
       <div>
-        <p>Citas</p>
+        <p>Dates</p>
         <button type="submit" onClick={handleOpenModal}>
-          Pedir Cita
+          Book Date
         </button>
       </div>
       <AppointmentModal
@@ -74,39 +86,43 @@ export const Appointments = () => {
         handleSaveChanges={handleSaveChanges}
       />
       {allMyAppointments ? (
-        <div>
+        <div className="tableContainer">
           <table>
             <thead>
               <tr>
                 <th>ID</th>
-                <th>Fecha</th>
-                <th>Hora de inicio</th>
-                <th>Hora de fin</th>
-                <th>Servicio</th>
-                <th>Tatuador</th>
-                <th>Acciones</th>
+                <th>Customer</th>
+                <th>Artist</th>
+                <th>Date</th>
+                <th>Star Time</th>
+                <th>End Time</th>
+                <th>Service</th>
+                <th>Actions</th>
+             
               </tr>
             </thead>
             <tbody>
               {allMyAppointments.map((e) => (
-                <tr key={e._id}>
-                  <td>{e._id}</td>
+                <tr key={e._id} className={e.isDeleted ? "deletedRow" : ""}>
+                  <td >{e._id}</td>
+                  <td>{e.nameCustomer}</td>
+                  <td>{e.nameTattooArtist}</td>
                   <td>{e.date}</td>
                   <td>{e.startTime}</td>
                   <td>{e.endTime}</td>
-                  <td>{e.customerId}</td>
                   <td>{e.service}</td>
-                  <td>{e.tattooArtistId}</td>
                   <td>
                     <FontAwesomeIcon
                       icon={faEdit}
                       onClick={() => handleEdit(e)}
                       style={{ cursor: "pointer", marginRight: "10px" }}
+                      disabled={e.isDeleted}
                     />
                     <FontAwesomeIcon
                       icon={faTrash}
                       onClick={() => handleDelete(e._id)}
                       style={{ cursor: "pointer" }}
+                      disabled={e.isDeleted}
                     />
                   </td>
                 </tr>
