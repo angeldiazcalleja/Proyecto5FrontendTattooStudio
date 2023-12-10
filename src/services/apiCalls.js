@@ -79,10 +79,13 @@ export const createAppointment = async (newAppointment, token) => {
 };
  
 
-export const getAppointments = async (token) => {
+export const getAppointments = async (token, page) => {
   const result = await axios.get("http://localhost:3000/appointments", {
     headers: {
       Authorization: `Bearer ${token}`,
+    },
+    params: {
+      page,
     },
   });
   return result.data;

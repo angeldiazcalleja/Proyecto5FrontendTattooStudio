@@ -74,3 +74,5 @@ export const AppointmentModal = ({ open, handleClose, appointment }) => {
 };
 
 
+
+export default AppointmentModal

@@ -10,14 +10,18 @@ import { useSelector } from "react-redux";
 import { userData } from "../../pages/userSlice.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faEdit } from "@fortawesome/free-solid-svg-icons";
-import { AppointmentModal } from "./Components/AppointmentModal.jsx";
-import "./Appointments.css"
+import AppointmentModal from "./Components/AppointmentModal.jsx"; 
+import Pagination from "../Pagination/Pagination.jsx"; 
+import "./Appointments.css";
 
 export const Appointments = () => {
   const { token } = useSelector(userData);
   const [modalOpen, setModalOpen] = useState(false);
   const [allMyAppointments, setAllMyAppointments] = useState([]);
   const [selectedAppointment, setSelectedAppointment] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const [totalAppointments, setTotalAppointments] = useState(0);
 
   const handleOpenModal = () => setModalOpen(true);
   const handleCloseModal = () => {
@@ -25,14 +29,18 @@ export const Appointments = () => {
     handleAppointmentList();
   };
 
-  const handleAppointmentList = async () => {
+  const handleAppointmentList = async (newPage = 1) => {
     try {
-      const appointments = await getAppointments(token);
+      const appointments = await getAppointments(token, newPage);
       setAllMyAppointments(appointments.appointments);
+      setCurrentPage(newPage);
+      setTotalAppointments(appointments.totalAppointments);
+      setTotalPages(Math.ceil(appointments.totalAppointments / 10)); 
     } catch (error) {
       console.log(error);
     }
   };
+  
 
   useEffect(() => {
     handleAppointmentList();
@@ -70,6 +78,10 @@ export const Appointments = () => {
     handleAppointmentList();
   };
 
+  const handlePageChange = (newPage) => {
+    handleAppointmentList(newPage);
+  };
+
   return (
     <div className="appointmentContainer">
       <div>
@@ -97,13 +109,12 @@ export const Appointments = () => {
                 <th>End Time</th>
                 <th>Service</th>
                 <th>Actions</th>
-             
               </tr>
             </thead>
             <tbody>
               {allMyAppointments.map((e) => (
                 <tr key={e._id} className={e.isDeleted ? "deletedRow" : ""}>
-                  <td >{e._id}</td>
+                  <td>{e._id}</td>
                   <td>{e.nameCustomer}</td>
                   <td>{e.nameTattooArtist}</td>
                   <td>{e.date}</td>
@@ -128,6 +139,11 @@ export const Appointments = () => {
               ))}
             </tbody>
           </table>
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={handlePageChange}
+          />
         </div>
       ) : (
         <p>There are no appointments available</p>
@@ -135,3 +151,6 @@ export const Appointments = () => {
     </div>
   );
 };
+
+export default Appointments;
+
