@@ -4,7 +4,13 @@
 import { jwtDecode } from "jwt-decode";
 import "./AppointmentForm.css";
 
-export const AppointmentForm = ({ formData, setFormData, token, handleSaveChanges, appointment }) => {
+export const AppointmentForm = ({
+  formData,
+  setFormData,
+  token,
+  handleSaveChanges,
+  appointment,
+}) => {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -12,7 +18,7 @@ export const AppointmentForm = ({ formData, setFormData, token, handleSaveChange
       [name]: value,
     }));
   };
- 
+
   const decodeToken = jwtDecode(token);
   const isAdmin = token.role;
 
@@ -21,8 +27,8 @@ export const AppointmentForm = ({ formData, setFormData, token, handleSaveChange
       <div className="formDate">
         <span className="informationDate">
           <p>
-            Please fill out the form if you would like to schedule an appointment
-            with our staff.
+            Please fill out the form if you would like to schedule an
+            appointment with our staff.
           </p>
           <p>Depending on the design, a consultation may be necessary. </p>
           <p>
@@ -35,37 +41,43 @@ export const AppointmentForm = ({ formData, setFormData, token, handleSaveChange
         <div className="formRow">
           <div className="formColumn">
             {isAdmin === "admin" ? (
-              <div style={{ marginBottom: "20px" }}>
-                <label className="labelForm" htmlFor="customerId">Id customer</label>
-                <input
-                  className="inputForm"
-                  type="text"
-                  id="customerId"
-                  name="customerId"
-                  onChange={handleInputChange}
-                  required
-                />
-              </div>
-            ) : (
               <>
-                <label className="labelForm" htmlFor="customer">Customer</label>
+                <label className="labelForm" htmlFor="customer">
+                  Customer
+                </label>
                 <select
-                    className="inputForm"
+                  className="inputForm"
                   id="customerId"
                   name="customerId"
                   value={formData.customerId}
                   onChange={handleInputChange}
                 >
-                  <option value="655a869ad757ff84ae8b7e71">Ikan Bettah</option>
-                  <option value="655a8778d757ff84ae8b7e74">Sandra Black</option>
-                  <option value="655a8791d757ff84ae8b7e77">George</option>
+                  {/* Opciones del select */}
                 </select>
               </>
+            ) : (
+          
+              <div style={{ marginBottom: "20px" }}>
+                <label className="labelForm" htmlFor="customerId">
+                  Id customer
+                </label>
+                <input
+                  className="inputForm"
+                  type="text"
+                  id="customerId"
+                  name="customerId"
+                  value={decodeToken.customerId}
+                  onChange={handleInputChange}
+                  required
+                />
+              </div>
             )}
           </div>
 
           <div className="formColumn">
-            <label className="labelForm" htmlFor="date">Date</label>
+            <label className="labelForm" htmlFor="date">
+              Date
+            </label>
             <input
               className="inputForm"
               type="date"
@@ -80,7 +92,9 @@ export const AppointmentForm = ({ formData, setFormData, token, handleSaveChange
 
         <div className="formRow">
           <div className="formColumn">
-            <label className="labelForm" htmlFor="startTime">Start Time</label>
+            <label className="labelForm" htmlFor="startTime">
+              Start Time
+            </label>
             <input
               className="inputForm"
               type="datetime-local"
@@ -93,7 +107,9 @@ export const AppointmentForm = ({ formData, setFormData, token, handleSaveChange
           </div>
 
           <div className="formColumn">
-            <label className="labelForm" htmlFor="endTime">End Time</label>
+            <label className="labelForm" htmlFor="endTime">
+              End Time
+            </label>
             <input
               className="inputForm"
               type="datetime-local"
@@ -108,7 +124,9 @@ export const AppointmentForm = ({ formData, setFormData, token, handleSaveChange
 
         <div className="formRow">
           <div className="formColumn">
-            <label className="labelForm" htmlFor="service">Service</label>
+            <label className="labelForm" htmlFor="service">
+              Service
+            </label>
             <select
               className="inputForm"
               id="service"
@@ -123,7 +141,9 @@ export const AppointmentForm = ({ formData, setFormData, token, handleSaveChange
           </div>
 
           <div className="formColumn">
-            <label className="labelForm" htmlFor="tattooArtist">Artist</label>
+            <label className="labelForm" htmlFor="tattooArtist">
+              Artist
+            </label>
             <select
               className="inputForm"
               id="tattooArtistId"
@@ -137,9 +157,9 @@ export const AppointmentForm = ({ formData, setFormData, token, handleSaveChange
             </select>
           </div>
         </div>
-            <button className="buttonForm" onClick={handleSaveChanges}>
-              {appointment ? "Save Changes" : "Send"}
-            </button>
+        <button className="buttonForm" onClick={handleSaveChanges}>
+          {appointment ? "Save Changes" : "Send"}
+        </button>
       </div>
     </>
   );

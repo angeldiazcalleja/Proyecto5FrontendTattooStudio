@@ -94,7 +94,7 @@ Lista de los diferentes servicios y precios.
 
 Las contribuciones son bienvenidas. Si encuentras algún problema o tienes una mejora, ¡no dudes en abrir un problema o enviar un pull request!
 
-### Licencia y Copyright
+## Licencia y Copyright
 
 Este proyecto pertenece a **Ángel Díaz Calleja** y ha sido creado como proyecto del Bootcamp Full Stack Developer de GeeksHubs Academy.
 
